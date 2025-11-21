@@ -32,6 +32,21 @@
             background-color: #e5e7eb;
             color: #4b5563;
         }
+        /* Custom style for the nav links to match the formal tone */
+        .nav-link {
+            transition: color 0.15s, border-bottom 0.15s;
+            border-bottom: 2px solid transparent;
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            color: #1f2937; /* Darker gray on hover */
+            border-bottom-color: #374151; /* Underline on hover */
+        }
+        .active-link {
+            color: #374151;
+            border-bottom-color: #374151;
+            font-weight: 700;
+        }
     </style>
 </head>
 <body class="p-4 sm:p-8 lg:p-12">
@@ -39,10 +54,16 @@
     <!-- Resume Container - slightly narrower max width to focus content -->
     <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-xl p-8 md:p-10 lg:p-12">
 
+        <!-- Navigation Bar -->
+        <nav class="flex justify-center space-x-8 mb-10 pb-4 border-b border-gray-300">
+            <a href="index.html" class="nav-link active-link text-gray-800">Resume</a>
+            <a href="projects.html" class="nav-link text-gray-600 hover:text-gray-800">Projects</a>
+        </nav>
+
         <!-- Header: Name & Contact (All caps, less tracking) -->
         <header class="text-center mb-8 pb-4 border-b border-gray-300">
-            <h1 class="text-4xl font-serif font-bold text-gray-800 tracking-normal">Honor Perrine</h1>
-            <h2 class="text-xl font-medium text-gray-700 mt-1 mb-4">Real Estate Data and Analytics</h2>
+            <h1 class="text-4xl font-serif font-bold text-gray-800 tracking-normal">HONOR PERRINE</h1>
+            <h2 class="text-xl font-medium text-gray-700 mt-1 mb-4">REAL ESTATE DATA AND ANALYTICS</h2>
             <div class="text-sm text-gray-600 space-y-1 sm:space-y-0 sm:flex sm:justify-center sm:space-x-4">
                 <p>630-329-2776</p>
                 <p class="hidden sm:inline">|</p>
