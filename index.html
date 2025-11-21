@@ -7,47 +7,57 @@
     <!-- Load Tailwind CSS via CDN for rapid, responsive styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom styles for the resume layout */
+        /*
+        We are switching the primary font to a serif stack for a more formal/traditional look,
+        starting with Times New Roman (or a similar serif font).
+        */
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
+            font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+            background-color: #f7f7f7; /* Lighter background for formality */
         }
         .section-title {
-            border-bottom: 2px solid #1f2937; /* Dark gray border */
-            padding-bottom: 0.25rem;
-            margin-bottom: 1rem;
+            /* Deeper gray for a stronger presence, thicker bottom border */
+            border-bottom: 3px solid #374151; /* Darker gray border */
+            padding-bottom: 0.35rem;
+            margin-bottom: 1.25rem;
+            text-transform: uppercase;
         }
         .job-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
         }
+        /* Style for the skill tags to be more understated */
+        .skill-tag {
+            background-color: #e5e7eb;
+            color: #4b5563;
+        }
     </style>
 </head>
 <body class="p-4 sm:p-8 lg:p-12">
 
-    <!-- Resume Container -->
-    <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-2xl p-6 md:p-10 lg:p-12">
+    <!-- Resume Container - slightly narrower max width to focus content -->
+    <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-xl p-8 md:p-10 lg:p-12">
 
-        <!-- Header: Name & Contact -->
-        <header class="text-center mb-8 pb-4 border-b border-gray-200">
-            <h1 class="text-4xl font-extrabold text-gray-800 tracking-tight">HONOR PERRINE</h1>
-            <h2 class="text-xl font-semibold text-gray-600 mt-1 mb-4">REAL ESTATE DATA AND ANALYTICS</h2>
-            <div class="text-sm text-gray-500 space-y-1 sm:space-y-0 sm:flex sm:justify-center sm:space-x-4">
+        <!-- Header: Name & Contact (All caps, less tracking) -->
+        <header class="text-center mb-8 pb-4 border-b border-gray-300">
+            <h1 class="text-4xl font-serif font-bold text-gray-800 tracking-normal">HONOR PERRINE</h1>
+            <h2 class="text-xl font-medium text-gray-700 mt-1 mb-4">REAL ESTATE DATA AND ANALYTICS</h2>
+            <div class="text-sm text-gray-600 space-y-1 sm:space-y-0 sm:flex sm:justify-center sm:space-x-4">
                 <p>630-329-2776</p>
                 <p class="hidden sm:inline">|</p>
-                <p><a href="mailto:honorellenperrine@gmail.com" class="text-blue-600 hover:text-blue-800 transition duration-150">honorellenperrine@gmail.com</a></p>
+                <p><a href="mailto:honorellenperrine@gmail.com" class="text-gray-700 hover:text-gray-900 transition duration-150">honorellenperrine@gmail.com</a></p>
                 <p class="hidden sm:inline">|</p>
-                <p><a href="https://www.linkedin.com/in/honorperrine" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 transition duration-150">LinkedIn Profile</a></p>
+                <p><a href="https://www.linkedin.com/in/honorperrine" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-gray-900 transition duration-150">LinkedIn Profile</a></p>
                 <p class="hidden sm:inline">|</p>
                 <p>Chicago IL</p>
             </div>
         </header>
 
         <!-- Career Summary -->
-        <section class="mb-8">
-            <h3 class="section-title text-2xl font-bold text-gray-800">CAREER SUMMARY</h3>
-            <p class="text-gray-700 leading-relaxed">
+        <section class="mb-10">
+            <h3 class="section-title text-2xl font-bold text-gray-800">Career Summary</h3>
+            <p class="text-gray-700 leading-relaxed text-base">
                 Strategic analytics professional with 5+ years of experience in data management and reporting. Expertise in developing
                 scalable forecasting tools, streamlining financial reporting through BI tools (Excel, SQL, Power BI), and delivering actionable
                 insights to senior leadership. Skilled at bridging data and business strategy to drive operational excellence and investment
@@ -56,32 +66,32 @@
         </section>
 
         <!-- Technical Skills -->
-        <section class="mb-8">
-            <h3 class="section-title text-2xl font-bold text-gray-800">TECHNICAL SKILLS</h3>
+        <section class="mb-10">
+            <h3 class="section-title text-2xl font-bold text-gray-800">Technical Skills</h3>
             <div class="flex flex-wrap gap-2 text-sm">
-                <span class="bg-indigo-100 text-indigo-800 font-medium px-3 py-1 rounded-full">Microsoft Excel (Advanced)</span>
-                <span class="bg-indigo-100 text-indigo-800 font-medium px-3 py-1 rounded-full">SQL</span>
-                <span class="bg-indigo-100 text-indigo-800 font-medium px-3 py-1 rounded-full">Power BI</span>
-                <span class="bg-indigo-100 text-indigo-800 font-medium px-3 py-1 rounded-full">Python</span>
-                <span class="bg-indigo-100 text-indigo-800 font-medium px-3 py-1 rounded-full">VBA</span>
-                <span class="bg-indigo-100 text-indigo-800 font-medium px-3 py-1 rounded-full">Statistical Analysis</span>
-                <span class="bg-indigo-100 text-indigo-800 font-medium px-3 py-1 rounded-full">Project Management</span>
-                <span class="bg-indigo-100 text-indigo-800 font-medium px-3 py-1 rounded-full">Microsoft Office</span>
+                <span class="skill-tag font-normal px-3 py-1 rounded">Microsoft Excel (Advanced)</span>
+                <span class="skill-tag font-normal px-3 py-1 rounded">SQL</span>
+                <span class="skill-tag font-normal px-3 py-1 rounded">Power BI</span>
+                <span class="skill-tag font-normal px-3 py-1 rounded">Python</span>
+                <span class="skill-tag font-normal px-3 py-1 rounded">VBA</span>
+                <span class="skill-tag font-normal px-3 py-1 rounded">Statistical Analysis</span>
+                <span class="skill-tag font-normal px-3 py-1 rounded">Project Management</span>
+                <span class="skill-tag font-normal px-3 py-1 rounded">Microsoft Office</span>
             </div>
         </section>
 
 
         <!-- Work Experience -->
-        <section class="mb-8">
-            <h3 class="section-title text-2xl font-bold text-gray-800">WORK EXPERIENCE</h3>
+        <section class="mb-10">
+            <h3 class="section-title text-2xl font-bold text-gray-800">Work Experience</h3>
 
             <!-- Job 1: Waterton -->
-            <div class="mb-6 p-4 border border-gray-100 rounded-lg bg-gray-50 hover:bg-white transition duration-200">
+            <div class="mb-6">
                 <div class="job-header">
-                    <h4 class="text-xl font-semibold text-gray-800">Senior Analyst, Capital Programs and Operations | Waterton</h4>
-                    <span class="text-md font-medium text-gray-500">2023-Present</span>
+                    <h4 class="text-xl font-bold text-gray-800">Senior Analyst, Capital Programs and Operations, Waterton</h4>
+                    <span class="text-md font-medium text-gray-600">2023–Present</span>
                 </div>
-                <ul class="list-disc ml-6 mt-2 text-gray-700 space-y-2">
+                <ul class="list-disc ml-6 mt-2 text-gray-700 space-y-2 text-base">
                     <li>Overhauled Capital analytics infrastructure and data warehouse to enable real-time financial reporting.</li>
                     <li>Automated data auditing for various capital and operations data projects, including renovation tracking, capital job tracking, and amenity pricing.</li>
                     <li>Designed Capital's budgeting and forecasting workstream in Vena, including data modeling, templates, and training materials.</li>
@@ -94,12 +104,12 @@
             </div>
 
             <!-- Job 2: Lockheed Martin -->
-            <div class="mb-6 p-4 border border-gray-100 rounded-lg bg-gray-50 hover:bg-white transition duration-200">
+            <div class="mb-6">
                 <div class="job-header">
-                    <h4 class="text-xl font-semibold text-gray-800">Control Account Manager | Lockheed Martin</h4>
-                    <span class="text-md font-medium text-gray-500">2019-2022</span>
+                    <h4 class="text-xl font-bold text-gray-800">Control Account Manager, Lockheed Martin</h4>
+                    <span class="text-md font-medium text-gray-600">2019–2022</span>
                 </div>
-                <ul class="list-disc ml-6 mt-2 text-gray-700 space-y-2">
+                <ul class="list-disc ml-6 mt-2 text-gray-700 space-y-2 text-base">
                     <li>Maintained and analyzed 50+ Aeronautics budget accounts ($50M) across 9 programs through monthly variance analysis, forecasting, and reconciliations.</li>
                     <li>Engineered labor and material forecasting models adopted department-wide to enhance financial planning accuracy.</li>
                     <li>Executed data transformation and statistical analysis to support reporting on program and financial performance to support directorate-level decision-making.</li>
@@ -110,15 +120,15 @@
 
         <!-- Education -->
         <section>
-            <h3 class="section-title text-2xl font-bold text-gray-800">EDUCATION</h3>
+            <h3 class="section-title text-2xl font-bold text-gray-800">Education</h3>
             <div class="job-header mb-2">
-                <h4 class="text-xl font-semibold text-gray-800">Hillsdale College | Bachelor of Arts</h4>
-                <span class="text-md font-medium text-gray-500">2019</span>
+                <h4 class="text-xl font-bold text-gray-800">Hillsdale College | Bachelor of Arts</h4>
+                <span class="text-md font-medium text-gray-600">2019</span>
             </div>
-            <p class="text-gray-700 italic">Cum Laude, Economics Major and Mathematics Minor</p>
+            <p class="text-gray-700 italic text-base">Cum Laude, Economics Major and Mathematics Minor</p>
 
-            <h5 class="text-lg font-semibold text-gray-700 mt-4 mb-1">Relevant Coursework:</h5>
-            <ul class="list-disc ml-6 text-gray-600 grid grid-cols-1 sm:grid-cols-2 gap-y-1">
+            <h5 class="text-lg font-bold text-gray-700 mt-4 mb-1">Relevant Coursework:</h5>
+            <ul class="list-disc ml-6 text-gray-600 text-base grid grid-cols-1 sm:grid-cols-2 gap-y-1">
                 <li>Econometrics</li>
                 <li>Intermediate Macroeconomics</li>
                 <li>Probability and Statistics</li>
@@ -127,11 +137,11 @@
                 <li>Multivariable Calculus</li>
             </ul>
 
-            <h5 class="text-lg font-semibold text-gray-700 mt-4 mb-1">Extracurriculars:</h5>
+            <h5 class="text-lg font-bold text-gray-700 mt-4 mb-1">Extracurriculars:</h5>
             <div class="flex flex-wrap gap-2 text-sm mt-1">
-                <span class="bg-gray-200 text-gray-700 font-medium px-3 py-1 rounded-full">Mock Trial</span>
-                <span class="bg-gray-200 text-gray-700 font-medium px-3 py-1 rounded-full">Pi Beta Phi Women's Fraternity</span>
-                <span class="bg-gray-200 text-gray-700 font-medium px-3 py-1 rounded-full">Praxis (Economics Club)</span>
+                <span class="bg-gray-200 text-gray-700 font-normal px-3 py-1 rounded">Mock Trial</span>
+                <span class="bg-gray-200 text-gray-700 font-normal px-3 py-1 rounded">Pi Beta Phi Women's Fraternity</span>
+                <span class="bg-gray-200 text-gray-700 font-normal px-3 py-1 rounded">Praxis (Economics Club)</span>
             </div>
         </section>
 
