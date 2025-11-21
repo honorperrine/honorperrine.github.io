@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Capital Analytics Infrastructure Redesign</title>
+    <!-- Load Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+            background-color: #f7f7f7;
+            line-height: 1.75;
+        }
+        .section-title {
+            border-bottom: 3px solid #374151;
+            padding-bottom: 0.35rem;
+            margin-bottom: 1.25rem;
+            text-transform: uppercase;
+        }
+        /* Custom style for the nav links */
+        .nav-link {
+            transition: color 0.15s, border-bottom 0.15s;
+            border-bottom: 2px solid transparent;
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            color: #1f2937;
+            border-bottom-color: #374151;
+        }
+        .active-link {
+            color: #374151;
+            border-bottom-color: #374151;
+            font-weight: 700;
+        }
+        .project-section-header {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #374151;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            border-left: 4px solid #374151;
+            padding-left: 0.75rem;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8 lg:p-12">
+
+    <!-- Main Container -->
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-xl p-8 md:p-10 lg:p-12">
+
+        <!-- Navigation Bar -->
+        <nav class="flex justify-center space-x-8 mb-10 pb-4 border-b border-gray-300">
+            <a href="../index.html" class="nav-link text-gray-600 hover:text-gray-800">Resume</a>
+            <a href="../projects.html" class="nav-link active-link text-gray-800">Projects</a>
+        </nav>
+
+        <!-- Project Header -->
+        <header class="text-center mb-10">
+            <p class="text-sm text-gray-500 mb-2 font-sans uppercase tracking-widest">Case Study | Waterton</p>
+            <h1 class="text-4xl font-serif font-bold text-gray-800">Capital Programs Analytics Infrastructure Redesign</h1>
+            <div class="flex flex-wrap gap-2 justify-center text-sm mt-4 font-sans">
+                <span class="bg-indigo-100 text-indigo-800 font-medium px-3 py-1 rounded-full">SQL</span>
+                <span class="bg-indigo-100 text-indigo-800 font-medium px-3 py-1 rounded-full">Power BI</span>
+                <span class="bg-indigo-100 text-indigo-800 font-medium px-3 py-1 rounded-full">Data Modeling</span>
+                <span class="bg-indigo-100 text-indigo-800 font-medium px-3 py-1 rounded-full">Vena (FP&A)</span>
+            </div>
+        </header>
+
+        <!-- Executive Summary -->
+        <section class="mb-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <h2 class="text-xl font-bold text-gray-800 mb-2 font-sans">Executive Summary</h2>
+            <p class="text-gray-700 text-base">
+                Led the overhaul of the capital programs' data and analytics environment, transitioning from siloed, manual data sources to a centralized, governed data warehouse solution. The initiative established standardized financial reporting, enabled real-time budget forecasting in Vena, and deployed self-service Power BI dashboards, resulting in significant time savings and improved capital allocation decision-making across the firm.
+            </p>
+        </section>
+
+        <!-- 1. The Challenge -->
+        <section class="mb-10">
+            <h3 class="project-section-header">The Challenge: Data Silos and Reporting Lag</h3>
+            <p class="text-gray-700 text-base">
+                The Capital Programs department managed a large, multi-million dollar budget, but critical operational and financial data were fragmented across various manual trackers and legacy systems. This structure led to several key pain points:
+            </p>
+            <ul class="list-disc ml-6 mt-3 text-gray-700 space-y-2 text-base">
+                <li>**Inaccurate Forecasting:** Budget forecasting was time-intensive and error-prone, requiring weekly manual consolidation and reconciliation in Microsoft Excel.</li>
+                <li>**Lack of Real-Time Visibility:** Senior leadership lacked immediate insight into project status, budget burn rates, and renovation tracking, hindering timely capital allocation decisions.</li>
+                <li>**Data Governance:** Discrepancies between operational data and financial data required significant manual auditing time (estimated at 5-10 hours per week).</li>
+            </ul>
+        </section>
+
+        <!-- 2. The Solution: Centralized Data Infrastructure -->
+        <section class="mb-10">
+            <h3 class="project-section-header">The Solution: Establishing a Single Source of Truth</h3>
+            <p class="text-gray-700 text-base">
+                I designed and implemented a comprehensive solution focused on data centralization and automation:
+            </p>
+            <ul class="list-disc ml-6 mt-3 text-gray-700 space-y-2 text-base">
+                <li>**SQL Data Warehouse:** Developed robust **SQL** scripts and views to cleanse, standardize, and load data from multiple source systems (including renovation, job tracking, and financial ledgers) into a central data warehouse. This established a single source of truth for all Capital Program metrics.</li>
+                <li>**Vena Integration:** Designed the data modeling, templates, and training materials for the Capital department’s budgeting and forecasting workstream in **Vena** (a corporate FP&A platform). This replaced Excel-based models and enabled dynamic, real-time budget forecasting tied directly to the central data warehouse.</li>
+                <li>**Power BI Automation:** Automated data auditing processes and deployed over **7 Power BI reports** covering portfolio metrics, budget vs. actual performance, and renovation progress, providing self-service analytics to 500+ monthly users.</li>
+            </ul>
+        </section>
+
+        <!-- 3. Results and Impact -->
+        <section class="mb-10">
+            <h3 class="project-section-header">Results and Business Impact</h3>
+            <p class="text-gray-700 text-base">
+                The implementation delivered tangible results by enhancing efficiency and providing strategic insights:
+            </p>
+            <ul class="list-disc ml-6 mt-3 text-gray-700 space-y-2 text-base">
+                <li>**100% Real-Time Reporting:** Eliminated reporting lag, enabling management to make highly accurate, data-driven decisions on capital allocation and project oversight.</li>
+                <li>**Significant Time Savings:** Reduced manual data auditing and reconciliation efforts by an estimated **80%**, freeing up analyst time for value-added analysis rather than data cleanup.</li>
+                <li>**Improved Data Quality:** Automated data auditing processes resulted in a sustained improvement in data governance and trust in key operational metrics.</li>
+                <li>**Enhanced User Adoption:** Successful deployment of interactive reports and the Vena system cemented my role as the organizational SME for Capital data strategy.</li>
+            </ul>
+        </section>
+
+        <!-- Back to Projects Link -->
+        <div class="mt-12 pt-6 border-t border-gray-300 text-center">
+             <a href="../projects.html" class="text-lg font-bold text-gray-700 hover:text-gray-900 transition duration-150">← Back to Portfolio</a>
+        </div>
+
+    </div>
+</body>
+</html>
