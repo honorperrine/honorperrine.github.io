@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honor Perrine - Projects Portfolio</title>
+    <!-- Load Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+            background-color: #f7f7f7;
+        }
+        .section-title {
+            border-bottom: 3px solid #374151;
+            padding-bottom: 0.35rem;
+            margin-bottom: 1.25rem;
+            text-transform: uppercase;
+        }
+        /* Custom style for the nav links to match the formal tone */
+        .nav-link {
+            transition: color 0.15s, border-bottom 0.15s;
+            border-bottom: 2px solid transparent;
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            color: #1f2937; /* Darker gray on hover */
+            border-bottom-color: #374151; /* Underline on hover */
+        }
+        .active-link {
+            color: #374151;
+            border-bottom-color: #374151;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8 lg:p-12">
+
+    <!-- Main Container -->
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-xl p-8 md:p-10 lg:p-12">
+
+        <!-- Navigation Bar -->
+        <nav class="flex justify-center space-x-8 mb-10 pb-4 border-b border-gray-300">
+            <a href="index.html" class="nav-link text-gray-600 hover:text-gray-800">Resume</a>
+            <a href="projects.html" class="nav-link active-link text-gray-800">Projects</a>
+            <!-- Placeholder for future pages, e.g., <a href="contact.html" class="nav-link text-gray-600 hover:text-gray-800">Contact</a> -->
+        </nav>
+
+        <!-- Page Header -->
+        <header class="text-center mb-10">
+            <h1 class="text-4xl font-serif font-bold text-gray-800">DATA & ANALYTICS PORTFOLIO</h1>
+            <p class="text-lg text-gray-600 mt-2">Selected case studies detailing technical approach and business impact.</p>
+        </header>
+
+        <!-- Projects Grid -->
+        <section class="mb-10">
+            <h3 class="section-title text-2xl font-bold text-gray-800">Case Studies</h3>
+
+            <div class="grid grid-cols-1 gap-8">
+                
+                <!-- Project Card 1: Capital Analytics -->
+                <a href="#capital-analytics-project" class="block p-6 border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition duration-200 hover:bg-gray-50">
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">Capital Programs Analytics Infrastructure Redesign</h4>
+                    <p class="text-gray-600 mb-3">
+                        Overhauled the existing analytics framework to enable real-time financial reporting for a multi-million dollar capital program,
+                        improving forecasting accuracy and operational oversight.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-sm mt-3">
+                        <span class="bg-gray-200 text-gray-700 font-medium px-3 py-1 rounded">SQL</span>
+                        <span class="bg-gray-200 text-gray-700 font-medium px-3 py-1 rounded">Power BI</span>
+                        <span class="bg-gray-200 text-gray-700 font-medium px-3 py-1 rounded">Data Warehousing</span>
+                        <span class="bg-gray-200 text-gray-700 font-medium px-3 py-1 rounded">Vena (FP&A)</span>
+                    </div>
+                </a>
+
+                <!-- Placeholder for future project -->
+                <div class="p-6 border border-dashed border-gray-300 rounded-lg text-center text-gray-500">
+                    <p class="text-lg font-medium">Coming Soon: Operational Underwriting Model Automation</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>
