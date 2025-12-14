@@ -3,164 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Honor Perrine - Real Estate Data & Analytics</title>
+    <title>Honor Pierce - Real Estate Data & Analytics</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /*
-        We are switching the primary font to a serif stack for a more formal/traditional look,
-        starting with Times New Roman (or a similar serif font).
+        /* KEY AESTHETIC CHANGE: Use a modern, highly readable sans-serif font stack. 
+        SF Pro (Apple) or Roboto (Google) are the models. 
+        System fonts (ui-sans-serif) are fast and look great.
         */
         body {
-            font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-            background-color: #f7f7f7; /* Lighter background for formality */
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: #f0f0f5; /* Subtle, cool gray background (like an Apple product page) */
         }
+        
+        /* GOOGLE/APPLE AESTHETIC: Replace heavy lines and dark colors with subtle 
+        underscores and lighter grays. Use spacious padding.
+        */
         .section-title {
-            /* Deeper gray for a stronger presence, thicker bottom border */
-            border-bottom: 3px solid #374151; /* Darker gray border */
-            padding-bottom: 0.35rem;
-            margin-bottom: 1.25rem;
-            text-transform: uppercase;
+            /* Replace thick border with a very subtle, thin line */
+            border-bottom: 1px solid #d1d5db; /* Light gray border */
+            padding-bottom: 0.75rem; /* More vertical space */
+            margin-bottom: 1.5rem; /* More space below the title */
+            text-transform: none; /* Avoid shouting, use title-case or sentence case */
+            font-weight: 600; /* Semi-bold */
+            font-size: 1.5rem; /* Text-2xl equivalent */
+            color: #1f2937; /* Very dark gray for high contrast */
         }
+
+        /* Skills tags should look like elegant "pills" */
+        .skill-tag {
+            background-color: #f3f4f6; /* Very light background */
+            color: #4b5563;
+            border-radius: 9999px; /* Full rounded corners (pill shape) */
+            padding: 0.25rem 0.75rem; /* Tighter padding */
+            font-weight: 400; /* Regular weight */
+            font-size: 0.875rem; /* Text-sm */
+        }
+
+        /* Utility for job sections */
         .job-header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-        }
-        /* Style for the skill tags to be more understated */
-        .skill-tag {
-            background-color: #e5e7eb;
-            color: #4b5563;
-        }
-        /* Custom style for the nav links to match the formal tone */
-        .nav-link {
-            transition: color 0.15s, border-bottom 0.15s;
-            border-bottom: 2px solid transparent;
-            font-weight: 500;
-        }
-        .nav-link:hover {
-            color: #1f2937; /* Darker gray on hover */
-            border-bottom-color: #374151; /* Underline on hover */
-        }
-        .active-link {
-            color: #374151;
-            border-bottom-color: #374151;
-            font-weight: 700;
+            align-items: baseline; /* Align titles/dates nicely */
         }
     </style>
 </head>
-<body class="p-4 sm:p-8 lg:p-12">
+<body class="p-4 sm:p-12 lg:p-20">
 
-    <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-xl p-8 md:p-10 lg:p-12">
+    <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-2xl p-8 md:p-12 lg:p-16">
 
-        <nav class="flex justify-center space-x-8 mb-10 pb-4 border-b border-gray-300">
-            <a href="index.html" class="nav-link active-link text-gray-800">Resume</a>
-            <a href="projects.html" class="nav-link text-gray-600 hover:text-gray-800">Projects</a>
+        <nav class="flex justify-end space-x-6 mb-12">
+            <a href="projects.html" class="nav-link text-gray-500 hover:text-gray-900 transition duration-200 text-sm font-medium">PROJECTS</a>
         </nav>
         
-        <div class="flex justify-center mb-6">
-            <img 
-                src="Headshot2025.JPEG"
-                alt="Honor Perrine Headshot" 
-                class="w-32 h-32 rounded-full object-cover shadow-lg border-2 border-gray-200"
-            >
-        </div>
-        <header class="text-center mb-8 pb-4 border-b border-gray-300">
-            <h1 class="text-4xl font-serif font-bold text-gray-800 tracking-normal">HONOR PERRINE</h1>
-            <h2 class="text-xl font-medium text-gray-700 mt-1 mb-4">REAL ESTATE DATA AND ANALYTICS</h2>
-            <div class="text-sm text-gray-600 space-y-1 sm:space-y-0 sm:flex sm:justify-center sm:space-x-4">
+        <header class="mb-12">
+            <h1 class="text-6xl font-extrabold text-gray-900 tracking-tight leading-none">HONOR PIERCE</h1>
+            <h2 class="text-2xl font-light text-blue-600 mt-2">REAL ESTATE DATA FOUNDER</h2> 
+            
+            <div class="text-sm text-gray-500 mt-6 space-y-1 sm:space-y-0 sm:flex sm:space-x-4">
+                <a href="mailto:honorellenperrine@gmail.com" class="hover:text-gray-700 transition duration-150">honorellenperrine@gmail.com</a>
+                <span class="text-gray-300">|</span>
                 <p>630-329-2776</p>
-                <p class="hidden sm:inline">|</p>
-                <p><a href="mailto:honorellenperrine@gmail.com" class="text-gray-700 hover:text-gray-900 transition duration-150">honorellenperrine@gmail.com</a></p>
-                <p class="hidden sm:inline">|</p>
-                <p><a href="https://www.linkedin.com/in/honorperrine" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-gray-900 transition duration-150">LinkedIn Profile</a></p>
-                <p class="hidden sm:inline">|</p>
-                <p>Chicago IL</p>
+                <span class="text-gray-300">|</span>
+                <a href="https://www.linkedin.com/in/honorperrine" target="_blank" rel="noopener noreferrer" class="hover:text-gray-700 transition duration-150">LinkedIn</a>
+                <span class="text-gray-300">|</span>
+                <p>Chicago, IL</p>
             </div>
         </header>
 
-        <section class="mb-10">
-            <h3 class="section-title text-2xl font-bold text-gray-800">Career Summary</h3>
-            <p class="text-gray-700 leading-relaxed text-base">
-                Strategic analytics professional with 5+ years of experience in data management and reporting. Expertise in developing
-                scalable forecasting tools, streamlining financial reporting through BI tools (Excel, SQL, Power BI), and delivering actionable
-                insights to senior leadership. Skilled at bridging data and business strategy to drive operational excellence and investment
-                returns.
-            </p>
-        </section>
-
-        <section class="mb-10">
-            <h3 class="section-title text-2xl font-bold text-gray-800">Technical Skills</h3>
-            <div class="flex flex-wrap gap-2 text-sm">
-                <span class="skill-tag font-normal px-3 py-1 rounded">Microsoft Excel (Advanced)</span>
-                <span class="skill-tag font-normal px-3 py-1 rounded">SQL</span>
-                <span class="skill-tag font-normal px-3 py-1 rounded">Power BI</span>
-                <span class="skill-tag font-normal px-3 py-1 rounded">Python</span>
-                <span class="skill-tag font-normal px-3 py-1 rounded">VBA</span>
-                <span class="skill-tag font-normal px-3 py-1 rounded">Statistical Analysis</span>
-                <span class="skill-tag font-normal px-3 py-1 rounded">Project Management</span>
-                <span class="skill-tag font-normal px-3 py-1 rounded">Microsoft Office</span>
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+            <div class="md:col-span-2">
+                <h3 class="section-title">Professional Summary</h3>
+                <p class="text-gray-700 leading-relaxed text-base">
+                    Visionary Real Estate Data founder and strategist with 5+ years of experience transforming complex financial datasets into scalable forecasting and reporting infrastructure. Expertise in **SQL, Power BI, and Python** for developing data-driven investment strategies. Focused on bridging advanced analytics with executive decision-making to drive operational excellence and maximize investment returns in the real estate sector.
+                </p>
+            </div>
+            
+            <div>
+                <h3 class="section-title">Core Competencies</h3>
+                <div class="flex flex-wrap gap-2 text-sm">
+                    <span class="skill-tag">Data Architecture</span>
+                    <span class="skill-tag">Financial Modeling (Vena)</span>
+                    <span class="skill-tag">SQL & Python</span>
+                    <span class="skill-tag">Power BI / Data Visualization</span>
+                    <span class="skill-tag">Capital Analytics</span>
+                    <span class="skill-tag">Forecasting & Budgeting</span>
+                    <span class="skill-tag">Real Estate Underwriting</span>
+                </div>
             </div>
         </section>
 
+        <section class="mb-12">
+            <h3 class="section-title">Experience</h3>
 
-        <section class="mb-10">
-            <h3 class="section-title text-2xl font-bold text-gray-800">Work Experience</h3>
-
-            <div class="mb-6">
+            <div class="mb-8">
                 <div class="job-header">
-                    <h4 class="text-xl font-bold text-gray-800">Senior Analyst, Capital Programs and Operations, Waterton</h4>
-                    <span class="text-md font-medium text-gray-600">2023–Present</span>
+                    <h4 class="text-xl font-bold text-gray-900">Senior Analyst, Capital Programs and Operations, Waterton</h4>
+                    <span class="text-sm font-medium text-gray-500">2023–Present</span>
                 </div>
-                <ul class="list-disc ml-6 mt-2 text-gray-700 space-y-2 text-base">
-                    <li>Overhauled Capital analytics infrastructure and data warehouse to enable real-time financial reporting.</li>
-                    <li>Automated data auditing for various capital and operations data projects, including renovation tracking, capital job tracking, and amenity pricing.</li>
-                    <li>Designed Capital's budgeting and forecasting workstream in Vena, including data modeling, templates, and training materials.</li>
-                    <li>Developed a custom Power App to replace manual trackers, improving transparency and streamlining project oversight.</li>
-                    <li>Automated critical processes in Power BI and SQL, deploying 7+ reports across departments with 500+ monthly views.</li>
-                    <li>Assisted in Operations budgeting and reporting for the West region, including Operational underwriting for new acquisitions.</li>
-                    <li>Performed Quarterly Business Review with regional site teams to improve operational performance.</li>
-                    <li>Recognized across the organization as a subject matter expert in Capital data and a key driver of strategic process improvements.</li>
+                <p class="text-gray-600 italic mb-2">Chicago, IL | Multi-Family Real Estate Investment</p>
+                <ul class="list-disc ml-6 text-gray-700 space-y-2 text-base">
+                    <li>**Led the overhaul** of Capital analytics and data warehousing, enabling **real-time financial reporting** across the portfolio.</li>
+                    <li>**Automated mission-critical processes** using Power BI and SQL, deploying **7+ reports** (500+ monthly views) for renovation tracking, capital job tracking, and amenity pricing.</li>
+                    <li>Designed and implemented Capital's budgeting and forecasting workstream in Vena, significantly improving accuracy and planning efficiency.</li>
+                    <li>Developed a custom Power App to replace manual trackers, providing **streamlined project oversight** and transparency for executive stakeholders.</li>
                 </ul>
             </div>
 
-            <div class="mb-6">
+            <div>
                 <div class="job-header">
-                    <h4 class="text-xl font-bold text-gray-800">Control Account Manager, Lockheed Martin</h4>
-                    <span class="text-md font-medium text-gray-600">2019–2022</span>
+                    <h4 class="text-xl font-bold text-gray-900">Control Account Manager, Lockheed Martin</h4>
+                    <span class="text-sm font-medium text-gray-500">2019–2022</span>
                 </div>
-                <ul class="list-disc ml-6 mt-2 text-gray-700 space-y-2 text-base">
-                    <li>Maintained and analyzed 50+ Aeronautics budget accounts ($50M) across 9 programs through monthly variance analysis, forecasting, and reconciliations.</li>
-                    <li>Engineered labor and material forecasting models adopted department-wide to enhance financial planning accuracy.</li>
-                    <li>Executed data transformation and statistical analysis to support reporting on program and financial performance to support directorate-level decision-making.</li>
-                    <li>Delivered technical financial briefings to program leadership and government representatives.</li>
+                <p class="text-gray-600 italic mb-2">Orlando, FL | Aeronautics</p>
+                <ul class="list-disc ml-6 text-gray-700 space-y-2 text-base">
+                    <li>Managed and analyzed **50+ Aeronautics budget accounts ($50M)** across 9 programs, focusing on variance analysis and forecasting.</li>
+                    <li>Engineered and deployed **department-wide labor and material forecasting models**, enhancing financial planning accuracy across multiple directorates.</li>
+                    <li>Executed data transformation and statistical analysis to support high-level program and financial performance reporting.</li>
                 </ul>
             </div>
         </section>
 
         <section>
-            <h3 class="section-title text-2xl font-bold text-gray-800">Education</h3>
-            <div class="job-header mb-2">
-                <h4 class="text-xl font-bold text-gray-800">Hillsdale College | Bachelor of Arts</h4>
-                <span class="text-md font-medium text-gray-600">2019</span>
+            <h3 class="section-title">Education</h3>
+            <div class="job-header mb-1">
+                <h4 class="text-xl font-bold text-gray-900">Hillsdale College | Bachelor of Arts</h4>
+                <span class="text-sm font-medium text-gray-500">2019</span>
             </div>
-            <p class="text-gray-700 italic text-base">Cum Laude, Economics Major and Mathematics Minor</p>
+            <p class="text-gray-700 italic text-base mb-4">Cum Laude, Economics Major and Mathematics Minor</p>
 
-            <h5 class="text-lg font-bold text-gray-700 mt-4 mb-1">Relevant Coursework:</h5>
-            <ul class="list-disc ml-6 text-gray-600 text-base grid grid-cols-1 sm:grid-cols-2 gap-y-1">
-                <li>Econometrics</li>
-                <li>Intermediate Macroeconomics</li>
-                <li>Probability and Statistics</li>
-                <li>Mathematical Finance</li>
-                <li>Money and Banking</li>
-                <li>Multivariable Calculus</li>
-            </ul>
-
-            <h5 class="text-lg font-bold text-gray-700 mt-4 mb-1">Extracurriculars:</h5>
-            <div class="flex flex-wrap gap-2 text-sm mt-1">
-                <span class="bg-gray-200 text-gray-700 font-normal px-3 py-1 rounded">Mock Trial</span>
-                <span class="bg-gray-200 text-gray-700 font-normal px-3 py-1 rounded">Pi Beta Phi Women's Fraternity</span>
-                <span class="bg-gray-200 text-gray-700 font-normal px-3 py-1 rounded">Praxis (Economics Club)</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4 text-gray-700">
+                <div>
+                    <h5 class="font-semibold text-gray-800 mb-1">Relevant Coursework:</h5>
+                    <ul class="list-disc ml-6 text-base space-y-1">
+                        <li>Econometrics</li>
+                        <li>Intermediate Macroeconomics</li>
+                        <li>Probability and Statistics</li>
+                        <li>Mathematical Finance</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold text-gray-800 mb-1">Extracurriculars:</h5>
+                    <div class="flex flex-wrap gap-2 text-sm mt-1">
+                        <span class="skill-tag">Mock Trial</span>
+                        <span class="skill-tag">Pi Beta Phi Women's Fraternity</span>
+                        <span class="skill-tag">Praxis (Economics Club)</span>
+                    </div>
+                </div>
             </div>
+
         </section>
 
     </div>
