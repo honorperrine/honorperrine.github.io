@@ -11,6 +11,7 @@
             --google-red: #DB4437;
             --google-yellow: #F4B400;
             --google-green: #0F9D58;
+            --google-purple: #7B61FF;
             --cream: #fefdfb;
             --text-dark: #202124;
             --text-medium: #5f6368;
@@ -96,6 +97,11 @@
             box-shadow: -4px 0 0 var(--google-blue);
         }
 
+        .layer-5 {
+            background: rgba(123,97,255,0.07);
+            border: 1px solid rgba(123,97,255,0.25);
+        }     
+
         .layer-4 {
             background: rgba(66, 133, 244, 0.08);
             border: 1px solid rgba(66, 133, 244, 0.25);
@@ -124,6 +130,7 @@
             margin-bottom: 0.25rem;
         }
 
+        .layer-5 .layer-tag { background: rgba(123,97,255,0.12); color: var(--google-purple); }
         .layer-4 .layer-label { color: var(--google-blue); }
         .layer-3 .layer-label { color: var(--google-green); }
         .layer-2 .layer-label { color: #b8860b; }
@@ -157,6 +164,7 @@
             font-weight: 600;
         }
 
+        .layer-5 .layer-tag { background: rgba(123,97,255,0.12); color: var(--google-purple); }
         .layer-4 .layer-tag { background: rgba(66,133,244,0.12); color: var(--google-blue); }
         .layer-3 .layer-tag { background: rgba(15,157,88,0.12); color: var(--google-green); }
         .layer-2 .layer-tag { background: rgba(244,180,0,0.15); color: #8a6400; }
@@ -233,6 +241,7 @@
         .section-header.green::before { background: var(--google-green); }
         .section-header.yellow::before { background: var(--google-yellow); }
         .section-header.red::before { background: var(--google-red); }
+        .section-header.purple::before {background: var(--google-purplee); }
         .section-header.gray::before { background: #9aa0a6; }
 
         body p {
@@ -270,6 +279,51 @@
             letter-spacing: 0.02em;
             margin-top: 0.25rem;
         }
+
+        .loopback-arrow {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin: 0.75rem 0 0.25rem 0;
+            padding-left: 0.5rem;
+        }
+
+        .loopback-line {
+            position: relative;
+            width: 28px;
+            height: 60px;
+            flex-shrink: 0;
+        }
+
+        .loopback-line::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to top, var(--google-blue), rgba(66,133,244,0.3));
+            border-radius: 2px;
+        }
+
+        .loopback-line::after {
+            content: '↑';
+            position: absolute;
+            top: -8px;
+            left: -5px;
+            color: var(--google-blue);
+            font-size: 0.85rem;
+        }
+
+        .loopback-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--google-blue);
+            opacity: 0.7;
+            font-family: 'Courier New', monospace;
+        }
     </style>
 </head>
 <body class="p-4 sm:p-8 lg:p-12">
@@ -291,7 +345,7 @@
         <section class="mb-8 fade-in">
             <h2 class="section-title text-2xl font-semibold">The Analyst and the Principal-Agent Problem</h2>
 
-            <p>The principal-agent problem describes the conflict of interest arising when an agent acts on behalf of a principal with different objectives and private information. Within the context of better understanding modern analytics teams, the analyst will optimize for indispensability and output delivery at the expense of robustness, transferability, and transparency.</p>
+            <p>The principal-agent problem describes the conflict of interest arising when an agent acts on behalf of a principal with different objectives and private information. Within the context of understanding modern analytics teams, the analyst will optimize for indispensability and output delivery at the expense of robustness, transferability, and transparency.</p>
 
             <p>Most often, stakeholders cannot distinguish a well-architected analytical solution from a fragile one, and analysts only face pressure to build systems for longevity until a point of failure is discovered.</p>
 
@@ -306,7 +360,7 @@
 
             <!-- Diagram -->
             <div class="diagram-container">
-                <p class="text-xs uppercase tracking-widest font-semibold text-gray-400 mb-4 text-center">Analytics Infrastructure Stack</p>
+                <p class="text-xs uppercase tracking-widest font-semibold text-gray-400 mb-4 text-center">The Stack</p>
 
                 <!-- Layer 1: Warehouse -->
                 <div class="layer layer-1">
@@ -318,7 +372,7 @@
                     </div>
                 </div>
 
-                <div class="arrow"><span class="arrow-icon">↑ ingests ↑</span></div>
+                <div class="arrow"><span class="arrow-icon">↓</span></div>
 
                 <!-- Layer 2: Gold Layer -->
                 <div class="layer layer-2">
@@ -333,7 +387,7 @@
                     </div>
                 </div>
 
-                <div class="arrow"><span class="arrow-icon">↑ feeds ↑</span></div>
+                <div class="arrow"><span class="arrow-icon">↓</span></div>
 
                 <!-- Layer 3: Governance -->
                 <div class="layer layer-3">
@@ -348,7 +402,7 @@
                     </div>
                 </div>
 
-                <div class="arrow"><span class="arrow-icon">↑ feeds ↑</span></div>
+                <div class="arrow"><span class="arrow-icon">↓</span></div>
                 
                 <!-- Layer 4: Reporting -->
                 <div class="layer layer-4">
@@ -361,84 +415,69 @@
                     </div>
                 </div>
 
-                <div class="arrow"><span class="arrow-icon">↑ feeds ↑</span></div>
+                <div class="arrow"><span class="arrow-icon">↓</span></div>
 
-
-
-
-
-
-                <!-- Source Systems -->
-                <div style="background:#f8f9fa; border: 1px dashed #dadce0; border-radius:8px; padding: 0.85rem 1.5rem;">
-                    <div class="layer-label" style="color:#9aa0a6;">Source Systems</div>
-                    <div class="layer-desc">ERP · Property Management Systems · Operational Inputs · External Data Feeds · Manual Captures (Power Apps)</div>
+                <!-- Layer 5: The Feedback Loop -->
+                <div class="layer layer-5" id="layer-5">
+                    <div class="layer-label">Layer 5 — Feedback</div>
+                    <div class="layer-title">Systematically Incorporating Feedback</div>
+                    <div class="layer-desc">Engaging in open dialogue and regular check-ins with stakeholders, enabling the solution to evolve to meet business needs.</div>
+                    <div class="layer-tags">
+                        <span class="layer-tag">Stakeholder Check-ins</span>
+                        <span class="layer-tag">Iterative Refinement</span>
+                    </div>
                 </div>
+
+                <!-- Loopback arrow -->
+                <div class="loopback-arrow">
+                    <div class="loopback-line"></div>
+                    <div class="loopback-label">iterates back to foundation</div>
+                </div>
+
             </div>
-        </section>
-
-        <!-- Section 3: Layer by Layer -->
-        <section class="mb-8 fade-in">
-            <h2 class="section-title text-2xl font-semibold">How Each Layer Works in Practice</h2>
-
-            <div class="section-header red">The Data Warehouse</div>
-            <p>The warehouse is the foundation. Raw data from source systems — property management platforms, ERP systems, operational inputs — consolidated into a single, structured environment. The most important work at this layer isn't technical: it's determining what data the business actually needs before anything gets built. I start with the business questions and work backwards to define data requirements, rather than ingesting everything and figuring out use cases later.</p>
-
-            <div class="section-header yellow">The Gold Layer</div>
-            <p>Standardized SQL views, calculated fields, and pre-built datasets that sit on top of the warehouse and represent institutionalized business logic. This is where definitions live. What counts as an active capital project? How is a cost variance calculated? How are expenses allocated across entities? These answers shouldn't live in a report — they should live here, so every downstream output draws from the same source.</p>
-
-            <div class="pull-quote">
-                <p>The gold layer isn't just a technical artifact. It's an organizational agreement. Getting there requires convening the right stakeholders, surfacing conflicting definitions, and driving alignment on one authoritative answer. That process is as important as the SQL.</p>
-            </div>
-
-            <div class="section-header green">Data Definitions & Governance</div>
-            <p>Every metric has a name, a definition, a source, and an owner. Changes to definitions are documented and communicated. New data inputs go through a review process before they touch reporting. Audit automation runs continuously to flag anomalies before they reach a dashboard. This layer is what separates a data warehouse from a single source of truth.</p>
-
-            <div class="section-header blue">The Reporting Layer</div>
-            <p>Dashboards and reports built on top of a trusted foundation, with a consistent visual language across all outputs — standardized color coding, typography, layout templates, metric naming conventions, and a header on every report showing the data source and last refresh date. Stakeholders shouldn't have to wonder where a number came from or whether it's current.</p>
-            <p>Methodology is documented visually — a data flow diagram showing the path from source system to final output — so that a non-technical stakeholder can understand the logic without needing to read SQL.</p>
         </section>
 
         <!-- Section 4: Case Study -->
         <section class="mb-8 fade-in">
             <h2 class="section-title text-2xl font-semibold">In Practice: A Case Study</h2>
 
-            <p>At a large multifamily real estate operator, I inherited a reporting environment built on manually downloaded and transformed Excel files. My predecessor had defined the metrics herself and published reports without stakeholder alignment. The data was one person deep.</p>
+            <p>At a large multifamily real estate operator, I inherited a reporting environment built on manually downloaded and transformed Excel files. My predecessors had defined the metrics and published reports without stakeholder alignment.</p>
 
-            <p>The breaking point came when a bad number reached senior leadership. The instinct might be to fix the report. Instead, I diagnosed the root cause: the architecture didn't support reliable, repeatable analysis.</p>
+            <p>The breaking point came when leadership began to notice small discrepancies, eroding trust in all related reporting.</p>
 
-            <p>The rebuild took over a year, carried alongside normal responsibilities, and touched every layer of the framework:</p>
+            <p>The rebuild was a year-long initiative under close executive oversight, regular leadership check-ins, and ongoing iteration in response to evolving economic conditions.</p>
 
             <ul class="space-y-3 ml-2 mt-4 mb-4">
                 <li class="flex gap-3">
                     <span style="color:var(--google-red); font-weight:700; flex-shrink:0;">◆</span>
-                    <span style="color:#3c4043; line-height:1.7;">Worked with BI and capital teams to identify the business questions that reporting needed to answer, then worked backwards to define data requirements — getting clean, structured data into the warehouse before building anything on top of it.</span>
+                    <span style="color:#3c4043; line-height:1.7;">Worked with senior leadership in portfolio management, acquisitions, operations, and accounting to identify the business questions that reporting needed to answer, then worked backwards to define data requirements — getting clean, structured data into the warehouse in collaboration with the BI team.</span>
                 </li>
                 <li class="flex gap-3">
                     <span style="color:#b8860b; font-weight:700; flex-shrink:0;">◆</span>
-                    <span style="color:#3c4043; line-height:1.7;">Restructured the accounting hierarchy to align with how the business actually asked questions, and realigned hundreds of millions of dollars in historical budget and cost data to match the new structure.</span>
+                    <span style="color:#3c4043; line-height:1.7;">Restructured the accounting hierarchy to align with how the business actually asked questions, and realigned hundreds of millions of dollars in historical budget and cost data to match this new structure.</span>
                 </li>
                 <li class="flex gap-3">
                     <span style="color:var(--google-green); font-weight:700; flex-shrink:0;">◆</span>
-                    <span style="color:#3c4043; line-height:1.7;">Implemented audit automation and authored SOPs to enforce data quality at the source, and built a Power App to capture operational data that wasn't being recorded in any system but was critical to reporting.</span>
+                    <span style="color:#3c4043; line-height:1.7;">Implemented audit automation and authored SOPs to enforce data quality at the site-level, and built a Power App to capture operational data that wasn't being recorded in any system but was critical to reporting.</span>
                 </li>
                 <li class="flex gap-3">
                     <span style="color:var(--google-blue); font-weight:700; flex-shrink:0;">◆</span>
-                    <span style="color:#3c4043; line-height:1.7;">Redesigned all reporting with a consistent visual language, embedded methodology documentation, and clear sourcing on every output — delivering 10+ automated dashboards with 500+ monthly views across the organization.</span>
+                    <span style="color:#3c4043; line-height:1.7;">Created all new reporting with a consistent visual language, embedded methodology documentation, and clear sourcing — delivering 10+ automated dashboards with 500+ monthly views across the organization.</span>
                 </li>
-            </ul>
+                <li class="flex gap-3">
+                    <span style="color:var(--google-purple); font-weight:700; flex-shrink:0;">◆</span>
+                    <span style="color:#3c4043; line-height:1.7;">Conducted monthly reporting reviews to collect feedback and incorporate changes into the broader analytics solution.</span>
+                </li>
 
-            <div class="pull-quote">
-                <p>The proof that it worked wasn't a reconciliation passing or a report getting fewer questions. It was that leadership started pulling the reports themselves — without being asked, without needing someone to walk them through the numbers. That's what trusted infrastructure looks like.</p>
-            </div>
+                
+            </ul>
         </section>
 
         <!-- Section 5: Why It Matters -->
         <section class="mb-4 fade-in">
             <h2 class="section-title text-2xl font-semibold">Why This Matters Beyond Any One Industry</h2>
 
-            <p>The framework is industry-agnostic. Whether the underlying data is capital expenditures, expense allocations, workforce capacity, or client profitability — the failure modes are the same and the solution is the same. Start with the business questions. Build a foundation that enforces consistency. Institutionalize the logic so it outlasts any individual. And earn trust through repetition and transparency, not persuasion.</p>
-
-            <p>Analysis that scales isn't faster analysis. It's analysis that doesn't need to be redone every time someone new asks a question.</p>
+            <p>The framework is industry-agnostic. The failure modes are the same and the solution is the same. Start with the business questions. Build a foundation that enforces consistency. Institutionalize the logic so it outlasts individual contributors. And earn trust through repetition and transparency.</p>
         </section>
 
         <!-- Back link -->
