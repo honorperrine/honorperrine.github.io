@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honor Perrine - A Point of View on Analytics Infrastructure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --google-blue: #4285F4;
+            --google-red: #DB4437;
+            --google-yellow: #F4B400;
+            --google-green: #0F9D58;
+            --cream: #fefdfb;
+            --text-dark: #202124;
+            --text-medium: #5f6368;
+        }
+
+        body {
+            font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+            background-color: var(--cream);
+        }
+
+        .resume-card {
+            background-color: var(--cream);
+            box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 2px 6px 2px rgba(60,64,67,.15);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .resume-card:hover {
+            box-shadow: 0 1px 3px 0 rgba(60,64,67,.3), 0 4px 8px 3px rgba(60,64,67,.15);
+        }
+
+        .section-title {
+            border-bottom: 2px solid #e8eaed;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            color: var(--text-dark);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 48px;
+            height: 2px;
+            background: var(--google-blue);
+        }
+
+        .nav-link {
+            transition: all 0.2s ease;
+            border-bottom: 2px solid transparent;
+            font-weight: 500;
+            color: var(--text-medium);
+            padding-bottom: 4px;
+        }
+
+        .nav-link:hover {
+            color: var(--google-blue);
+            border-bottom-color: rgba(66, 133, 244, 0.3);
+        }
+
+        .active-link {
+            color: var(--google-blue);
+            border-bottom-color: var(--google-blue);
+            font-weight: 600;
+        }
+
+        a.contact-link {
+            color: var(--google-blue);
+            transition: color 0.15s ease;
+        }
+
+        /* Diagram styles */
+        .diagram-container {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(60,64,67,.2), 0 2px 8px rgba(60,64,67,.1);
+            margin: 2rem 0;
+            overflow-x: auto;
+        }
+
+        .layer {
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin: 0.5rem 0;
+            position: relative;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .layer:hover {
+            transform: translateX(4px);
+            box-shadow: -4px 0 0 var(--google-blue);
+        }
+
+        .layer-4 {
+            background: rgba(66, 133, 244, 0.08);
+            border: 1px solid rgba(66, 133, 244, 0.25);
+        }
+
+        .layer-3 {
+            background: rgba(15, 157, 88, 0.07);
+            border: 1px solid rgba(15, 157, 88, 0.25);
+        }
+
+        .layer-2 {
+            background: rgba(244, 180, 0, 0.07);
+            border: 1px solid rgba(244, 180, 0, 0.3);
+        }
+
+        .layer-1 {
+            background: rgba(219, 68, 55, 0.06);
+            border: 1px solid rgba(219, 68, 55, 0.2);
+        }
+
+        .layer-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.25rem;
+        }
+
+        .layer-4 .layer-label { color: var(--google-blue); }
+        .layer-3 .layer-label { color: var(--google-green); }
+        .layer-2 .layer-label { color: #b8860b; }
+        .layer-1 .layer-label { color: var(--google-red); }
+
+        .layer-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .layer-desc {
+            font-size: 0.85rem;
+            color: var(--text-medium);
+            line-height: 1.5;
+        }
+
+        .layer-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-top: 0.5rem;
+        }
+
+        .layer-tag {
+            font-size: 0.7rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 20px;
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+        }
+
+        .layer-4 .layer-tag { background: rgba(66,133,244,0.12); color: var(--google-blue); }
+        .layer-3 .layer-tag { background: rgba(15,157,88,0.12); color: var(--google-green); }
+        .layer-2 .layer-tag { background: rgba(244,180,0,0.15); color: #8a6400; }
+        .layer-1 .layer-tag { background: rgba(219,68,55,0.1); color: var(--google-red); }
+
+        .arrow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 28px;
+            color: #bdc1c6;
+            font-size: 1.2rem;
+            position: relative;
+        }
+
+        .arrow::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #e8eaed, #bdc1c6);
+            transform: translateX(-50%);
+        }
+
+        .arrow-icon {
+            background: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            z-index: 1;
+            color: #9aa0a6;
+            font-size: 0.8rem;
+        }
+
+        /* Pull quote */
+        .pull-quote {
+            border-left: 3px solid var(--google-blue);
+            padding: 1rem 1.5rem;
+            margin: 2rem 0;
+            background: rgba(66, 133, 244, 0.04);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .pull-quote p {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            font-style: italic;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* Section headers */
+        .section-header {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 2rem 0 0.75rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-header::before {
+            content: '';
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .section-header.blue::before { background: var(--google-blue); }
+        .section-header.green::before { background: var(--google-green); }
+        .section-header.yellow::before { background: var(--google-yellow); }
+        .section-header.red::before { background: var(--google-red); }
+        .section-header.gray::before { background: #9aa0a6; }
+
+        body p {
+            color: #3c4043;
+            line-height: 1.75;
+            margin-bottom: 1rem;
+        }
+
+        .skill-tag {
+            background-color: rgba(66, 133, 244, 0.08);
+            color: var(--google-blue);
+            border: 1px solid rgba(66, 133, 244, 0.2);
+        }
+
+        /* Fade in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(12px);
+            animation: fadeUp 0.5s ease forwards;
+        }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in:nth-child(1) { animation-delay: 0.05s; }
+        .fade-in:nth-child(2) { animation-delay: 0.1s; }
+        .fade-in:nth-child(3) { animation-delay: 0.15s; }
+        .fade-in:nth-child(4) { animation-delay: 0.2s; }
+        .fade-in:nth-child(5) { animation-delay: 0.25s; }
+
+        .byline {
+            font-size: 0.85rem;
+            color: var(--text-medium);
+            letter-spacing: 0.02em;
+            margin-top: 0.25rem;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8 lg:p-12">
+
+    <div class="max-w-4xl mx-auto resume-card rounded-lg p-8 md:p-10 lg:p-12">
+
+        <nav class="flex justify-center space-x-8 mb-8 pb-4 border-b border-gray-200">
+            <a href="index.html" class="nav-link">Resume</a>
+            <a href="approach.html" class="nav-link active-link">My Approach</a>
+        </nav>
+
+        <!-- Page header -->
+        <div class="mb-10">
+            <p class="byline uppercase tracking-widest text-xs mb-2" style="color: var(--google-blue);">Point of View</p>
+            <h1 class="text-3xl font-bold text-gray-900 tracking-tight leading-tight">A Point of View on Analytics Infrastructure</h1>
+            <p class="byline mt-2">Honor Perrine &nbsp;·&nbsp; Capital Programs & Quantitative Analytics</p>
+        </div>
+
+        <!-- Section 1: The Problem -->
+        <section class="mb-8 fade-in">
+            <h2 class="section-title text-2xl font-semibold">The Problem with Ad-Hoc Analytics</h2>
+
+            <p>Most analytics environments don't fail because of bad analysts. They fail because good analysts build things that only they understand.</p>
+
+            <p>The pattern is familiar: a capable person inherits a reporting need, builds something that works, and becomes the single point of failure for everything downstream. Reports live in personal folders. Metric definitions exist in someone's memory. When that person leaves, the reports break — or worse, they keep running but nobody knows if the numbers are right.</p>
+
+            <div class="pull-quote">
+                <p>The moment of reckoning is usually the same: a bad number reaches senior leadership. Not because anyone was careless, but because there was no infrastructure to catch it. That's not an analyst problem. It's an architecture problem.</p>
+            </div>
+
+            <p>The instinct is to fix the report. The right move is to fix the foundation.</p>
+        </section>
+
+        <!-- Section 2: The Framework -->
+        <section class="mb-8 fade-in">
+            <h2 class="section-title text-2xl font-semibold">The Framework: Four Layers of Institutional Analysis</h2>
+
+            <p>Scalable analytics isn't about building more reports. It's about building the right foundation so that every report that follows is faster to build, easier to trust, and survives the people who created it.</p>
+
+            <!-- Diagram -->
+            <div class="diagram-container">
+                <p class="text-xs uppercase tracking-widest font-semibold text-gray-400 mb-4 text-center">Analytics Infrastructure Stack</p>
+
+                <!-- Layer 4: Reporting -->
+                <div class="layer layer-4">
+                    <div class="layer-label">Layer 4 — Output</div>
+                    <div class="layer-title">Reporting & Visualization</div>
+                    <div class="layer-desc">Standardized dashboards and reports with consistent visual language — color coding, layout templates, metric naming, data source and refresh date on every output. Methodology documented as a data flow diagram so non-technical stakeholders can follow the logic.</div>
+                    <div class="layer-tags">
+                        <span class="layer-tag">Power BI</span>
+                        <span class="layer-tag">Tableau</span>
+                        <span class="layer-tag">Paginated Reports</span>
+                        <span class="layer-tag">Standard Templates</span>
+                        <span class="layer-tag">Flow Diagrams</span>
+                    </div>
+                </div>
+
+                <div class="arrow"><span class="arrow-icon">↑ feeds ↑</span></div>
+
+                <!-- Layer 3: Governance -->
+                <div class="layer layer-3">
+                    <div class="layer-label">Layer 3 — Trust</div>
+                    <div class="layer-title">Data Definitions & Governance</div>
+                    <div class="layer-desc">Every metric has a name, definition, source, and owner. Changes are documented and communicated. Audit automation runs continuously to catch anomalies before they reach a report. Stakeholder alignment is required before any definition is institutionalized.</div>
+                    <div class="layer-tags">
+                        <span class="layer-tag">Data Dictionary</span>
+                        <span class="layer-tag">Audit Automation</span>
+                        <span class="layer-tag">SOPs</span>
+                        <span class="layer-tag">Stakeholder Sign-off</span>
+                    </div>
+                </div>
+
+                <div class="arrow"><span class="arrow-icon">↑ feeds ↑</span></div>
+
+                <!-- Layer 2: Gold Layer -->
+                <div class="layer layer-2">
+                    <div class="layer-label">Layer 2 — Logic</div>
+                    <div class="layer-title">Gold Layer — Institutionalized Business Logic</div>
+                    <div class="layer-desc">Standardized SQL views, calculated fields, and pre-built datasets representing agreed business definitions. This is where questions like "how is budget variance calculated?" and "what counts as an active renovation?" are answered — once, authoritatively, for every report downstream.</div>
+                    <div class="layer-tags">
+                        <span class="layer-tag">SQL Views</span>
+                        <span class="layer-tag">DAX Measures</span>
+                        <span class="layer-tag">Pre-built Datasets</span>
+                        <span class="layer-tag">Shared Definitions</span>
+                    </div>
+                </div>
+
+                <div class="arrow"><span class="arrow-icon">↑ feeds ↑</span></div>
+
+                <!-- Layer 1: Warehouse -->
+                <div class="layer layer-1">
+                    <div class="layer-label">Layer 1 — Foundation</div>
+                    <div class="layer-title">Data Warehouse</div>
+                    <div class="layer-desc">Raw data from source systems — ERP platforms, operational inputs, external feeds — consolidated into a single structured environment. Nothing above this layer is reliable if this layer isn't clean, consistent, and governed.</div>
+                    <div class="layer-tags">
+                        <span class="layer-tag">Source Systems</span>
+                        <span class="layer-tag">ETL / ELT</span>
+                        <span class="layer-tag">SQL</span>
+                        <span class="layer-tag">Data Validation</span>
+                        <span class="layer-tag">M Query</span>
+                    </div>
+                </div>
+
+                <div class="arrow"><span class="arrow-icon">↑ ingests ↑</span></div>
+
+                <!-- Source Systems -->
+                <div style="background:#f8f9fa; border: 1px dashed #dadce0; border-radius:8px; padding: 0.85rem 1.5rem;">
+                    <div class="layer-label" style="color:#9aa0a6;">Source Systems</div>
+                    <div class="layer-desc">ERP · Property Management Systems · Operational Inputs · External Data Feeds · Manual Captures (Power Apps)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Layer by Layer -->
+        <section class="mb-8 fade-in">
+            <h2 class="section-title text-2xl font-semibold">How Each Layer Works in Practice</h2>
+
+            <div class="section-header red">The Data Warehouse</div>
+            <p>The warehouse is the foundation. Raw data from source systems — property management platforms, ERP systems, operational inputs — consolidated into a single, structured environment. The most important work at this layer isn't technical: it's determining what data the business actually needs before anything gets built. I start with the business questions and work backwards to define data requirements, rather than ingesting everything and figuring out use cases later.</p>
+
+            <div class="section-header yellow">The Gold Layer</div>
+            <p>Standardized SQL views, calculated fields, and pre-built datasets that sit on top of the warehouse and represent institutionalized business logic. This is where definitions live. What counts as an active capital project? How is a cost variance calculated? How are expenses allocated across entities? These answers shouldn't live in a report — they should live here, so every downstream output draws from the same source.</p>
+
+            <div class="pull-quote">
+                <p>The gold layer isn't just a technical artifact. It's an organizational agreement. Getting there requires convening the right stakeholders, surfacing conflicting definitions, and driving alignment on one authoritative answer. That process is as important as the SQL.</p>
+            </div>
+
+            <div class="section-header green">Data Definitions & Governance</div>
+            <p>Every metric has a name, a definition, a source, and an owner. Changes to definitions are documented and communicated. New data inputs go through a review process before they touch reporting. Audit automation runs continuously to flag anomalies before they reach a dashboard. This layer is what separates a data warehouse from a single source of truth.</p>
+
+            <div class="section-header blue">The Reporting Layer</div>
+            <p>Dashboards and reports built on top of a trusted foundation, with a consistent visual language across all outputs — standardized color coding, typography, layout templates, metric naming conventions, and a header on every report showing the data source and last refresh date. Stakeholders shouldn't have to wonder where a number came from or whether it's current.</p>
+            <p>Methodology is documented visually — a data flow diagram showing the path from source system to final output — so that a non-technical stakeholder can understand the logic without needing to read SQL.</p>
+        </section>
+
+        <!-- Section 4: Case Study -->
+        <section class="mb-8 fade-in">
+            <h2 class="section-title text-2xl font-semibold">In Practice: A Case Study</h2>
+
+            <p>At a large multifamily real estate operator, I inherited a reporting environment built on manually downloaded and transformed Excel files. My predecessor had defined the metrics herself and published reports without stakeholder alignment. The data was one person deep.</p>
+
+            <p>The breaking point came when a bad number reached senior leadership. The instinct might be to fix the report. Instead, I diagnosed the root cause: the architecture didn't support reliable, repeatable analysis.</p>
+
+            <p>The rebuild took over a year, carried alongside normal responsibilities, and touched every layer of the framework:</p>
+
+            <ul class="space-y-3 ml-2 mt-4 mb-4">
+                <li class="flex gap-3">
+                    <span style="color:var(--google-red); font-weight:700; flex-shrink:0;">◆</span>
+                    <span style="color:#3c4043; line-height:1.7;">Worked with BI and capital teams to identify the business questions that reporting needed to answer, then worked backwards to define data requirements — getting clean, structured data into the warehouse before building anything on top of it.</span>
+                </li>
+                <li class="flex gap-3">
+                    <span style="color:#b8860b; font-weight:700; flex-shrink:0;">◆</span>
+                    <span style="color:#3c4043; line-height:1.7;">Restructured the accounting hierarchy to align with how the business actually asked questions, and realigned hundreds of millions of dollars in historical budget and cost data to match the new structure.</span>
+                </li>
+                <li class="flex gap-3">
+                    <span style="color:var(--google-green); font-weight:700; flex-shrink:0;">◆</span>
+                    <span style="color:#3c4043; line-height:1.7;">Implemented audit automation and authored SOPs to enforce data quality at the source, and built a Power App to capture operational data that wasn't being recorded in any system but was critical to reporting.</span>
+                </li>
+                <li class="flex gap-3">
+                    <span style="color:var(--google-blue); font-weight:700; flex-shrink:0;">◆</span>
+                    <span style="color:#3c4043; line-height:1.7;">Redesigned all reporting with a consistent visual language, embedded methodology documentation, and clear sourcing on every output — delivering 10+ automated dashboards with 500+ monthly views across the organization.</span>
+                </li>
+            </ul>
+
+            <div class="pull-quote">
+                <p>The proof that it worked wasn't a reconciliation passing or a report getting fewer questions. It was that leadership started pulling the reports themselves — without being asked, without needing someone to walk them through the numbers. That's what trusted infrastructure looks like.</p>
+            </div>
+        </section>
+
+        <!-- Section 5: Why It Matters -->
+        <section class="mb-4 fade-in">
+            <h2 class="section-title text-2xl font-semibold">Why This Matters Beyond Any One Industry</h2>
+
+            <p>The framework is industry-agnostic. Whether the underlying data is capital expenditures, expense allocations, workforce capacity, or client profitability — the failure modes are the same and the solution is the same. Start with the business questions. Build a foundation that enforces consistency. Institutionalize the logic so it outlasts any individual. And earn trust through repetition and transparency, not persuasion.</p>
+
+            <p>Analysis that scales isn't faster analysis. It's analysis that doesn't need to be redone every time someone new asks a question.</p>
+        </section>
+
+        <!-- Back link -->
+        <div class="mt-10 pt-6 border-t border-gray-200">
+            <a href="index.html" style="color:var(--google-blue); font-size:0.9rem; text-decoration:none; display:inline-flex; align-items:center; gap:0.4rem;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+                ← Back to Resume
+            </a>
+        </div>
+
+    </div>
+</body>
+</html>
