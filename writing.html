@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honor Perrine - Writing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --google-blue: #4285F4;
+            --google-red: #DB4437;
+            --google-yellow: #F4B400;
+            --google-green: #0F9D58;
+            --cream: #fefdfb;
+            --text-dark: #202124;
+            --text-medium: #5f6368;
+        }
+
+        body {
+            font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+            background-color: var(--cream);
+        }
+
+        .resume-card {
+            background-color: var(--cream);
+            box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 2px 6px 2px rgba(60,64,67,.15);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .resume-card:hover {
+            box-shadow: 0 1px 3px 0 rgba(60,64,67,.3), 0 4px 8px 3px rgba(60,64,67,.15);
+        }
+
+        .section-title {
+            border-bottom: 2px solid #e8eaed;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            color: var(--text-dark);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 48px;
+            height: 2px;
+            background: var(--google-blue);
+        }
+
+        .nav-link {
+            transition: all 0.2s ease;
+            border-bottom: 2px solid transparent;
+            font-weight: 500;
+            color: var(--text-medium);
+            padding-bottom: 4px;
+        }
+
+        .nav-link:hover {
+            color: var(--google-blue);
+            border-bottom-color: rgba(66, 133, 244, 0.3);
+        }
+
+        .active-link {
+            color: var(--google-blue);
+            border-bottom-color: var(--google-blue);
+            font-weight: 600;
+        }
+
+        .writing-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.65rem 0.5rem;
+            border-radius: 4px;
+            color: var(--google-blue);
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            border-bottom: 1px solid #f1f3f4;
+        }
+
+        .writing-link:last-child {
+            border-bottom: none;
+        }
+
+        .writing-link:hover {
+            background-color: rgba(66, 133, 244, 0.04);
+            color: #1967d2;
+        }
+
+        .writing-link::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            background-color: var(--google-blue);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .byline {
+            font-size: 0.85rem;
+            color: var(--text-medium);
+            letter-spacing: 0.02em;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8 lg:p-12">
+
+    <div class="max-w-4xl mx-auto resume-card rounded-lg p-8 md:p-10 lg:p-12">
+
+        <nav class="flex justify-center space-x-8 mb-8 pb-4 border-b border-gray-200">
+            <a href="index.html" class="nav-link">Resume</a>
+            <a href="approach.html" class="nav-link">My Approach</a>
+            <a href="writing.html" class="nav-link active-link">Writing</a>
+        </nav>
+
+        <section>
+            <h3 class="section-title text-2xl font-semibold">Economics</h3>
+            <div class="ml-2">
+                <a href="alchian.html" class="writing-link">
+                    Armen Alchian's Uncertainty, Evolution, and Economic Theory
+                </a>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>
