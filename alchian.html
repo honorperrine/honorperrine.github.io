@@ -1,1 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honor Perrine - Alchian Essay</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --google-blue: #4285F4;
+            --cream: #fefdfb;
+            --text-dark: #202124;
+            --text-medium: #5f6368;
+        }
 
+        body {
+            font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+            background-color: var(--cream);
+        }
+
+        .resume-card {
+            background-color: var(--cream);
+            box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 2px 6px 2px rgba(60,64,67,.15);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .resume-card:hover {
+            box-shadow: 0 1px 3px 0 rgba(60,64,67,.3), 0 4px 8px 3px rgba(60,64,67,.15);
+        }
+
+        .nav-link {
+            transition: all 0.2s ease;
+            border-bottom: 2px solid transparent;
+            font-weight: 500;
+            color: var(--text-medium);
+            padding-bottom: 4px;
+        }
+
+        .nav-link:hover {
+            color: var(--google-blue);
+            border-bottom-color: rgba(66, 133, 244, 0.3);
+        }
+
+        .essay-body p {
+            color: #3c4043;
+            line-height: 1.85;
+            margin-bottom: 1.4rem;
+            font-size: 1rem;
+        }
+
+        .essay-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .block-quote {
+            margin: 1.75rem 0 1.75rem 2rem;
+            padding-left: 1rem;
+            border-left: 2px solid #e8eaed;
+            color: var(--text-medium);
+            font-style: italic;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .byline {
+            font-size: 0.85rem;
+            color: var(--text-medium);
+            letter-spacing: 0.02em;
+        }
+
+        .metadata {
+            font-size: 0.85rem;
+            color: var(--text-medium);
+            line-height: 1.7;
+        }
+
+        .divider {
+            border: none;
+            border-top: 2px solid #e8eaed;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 0;
+            width: 48px;
+            height: 2px;
+            background: var(--google-blue);
+        }
+
+        .bibliography-entry {
+            color: #3c4043;
+            font-size: 0.9rem;
+            line-height: 1.75;
+            padding-left: 2rem;
+            text-indent: -2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .bibliography-entry:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8 lg:p-12">
+
+    <div class="max-w-4xl mx-auto resume-card rounded-lg p-8 md:p-10 lg:p-12">
+
+        <nav class="flex justify-center space-x-8 mb-8 pb-4 border-b border-gray-200">
+            <a href="index.html" class="nav-link">Resume</a>
+            <a href="approach.html" class="nav-link">My Approach</a>
+            <a href="writing.html" class="nav-link">Writing</a>
+        </nav>
+
+        <!-- Essay header -->
+        <div class="mb-8">
+            <p class="byline uppercase tracking-widest text-xs mb-2" style="color: var(--google-blue);">Writing</p>
+            <h1 class="text-3xl font-bold text-gray-900 tracking-tight leading-tight mb-4">Armen Alchian's Uncertainty, Evolution, and Economic Theory</h1>
+            <div class="metadata">
+                <span>Honor Perrine</span>
+                <span class="mx-2" style="color:#e8eaed;">•</span>
+                <span>Theory of the Firm</span>
+                <span class="mx-2" style="color:#e8eaed;">•</span>
+                <span>May 2018</span>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- Essay body -->
+        <div class="essay-body mt-8">
+
+            <p>"Uncertainty, Evolution, and Economic Theory" is an article written by American economist Armen Alchian in 1950 in which Alchian delineates the evolutionary process by which firms either survive or fail. Among the first in economics literature to theorize upon the theoretical link between success and survival in the market with the mechanisms of variation and natural selection as understood in evolutionary biology, Alchian argues for the adaptive process of firms in an uncertain and risky world. In anticipation of modern Behavioral economics, Alchian explains that firms do not and cannot operate as rational profit maximizers as assumed by Neoclassical economists. Despite this, Alchian still recognizes the merit of conventional analytical tools, namely marginal analysis in predicting and understanding markets. Although his insights were largely underappreciated by both his later works as well as the larger academic economics field, it was the first to introduce the notion that the adjusting mechanisms of the market do not depend upon motivation or special insight of entrepreneurs. Instead, the power of the market lies in its evolutionary drive, in spite of the lack of information and knowledge readily available to firms. Alchian's work was heavily influenced by his education and background in statistical analysis at Stanford University, United States Army Air Corps, and in conjunction with the Rand Corporation. Only having just graduated with a doctorate degree six years prior, this was Armen Alchian's first major work.</p>
+
+            <p>Armen Alchian was an American economist and professor of economics at the University of California in Los Angeles. He grew up in an Armenian family in Fresno, California and earned his PhD at Stanford University in 1944. From 1942 to 1946, Alchian served as a statistician with the United States Army Air Corps and then joined the Economics Department at UCLA where he remained for the rest of his career. Alchian was heavily involved with Rand Corporation, an American nonprofit global policy think tank created to offer research and analysis to the United States Armed Forces. In his work as a statistician, Alchian came to understand the significance of uncertainty in attempting to discern market truths, ultimately leading to his insights included in Uncertainty, Evolution, and Economic Theory.</p>
+
+            <p>In order to understand the academic context of this work, it helps to also understand the marginalist pricing debates of the 1940's. This debate, concerning the question of how prices are determined, was spurred by the work of economists Robert Hall and Charles Hitch. Their paper, Price Theory and Business Behavior published in 1939, argued that businesses do not set their prices according to marginal analysis but instead according to "full cost pricing." Full cost pricing refers to the act of working from a traditional or convenient price and then adjusting the quality of the goods until the average full cost of the good is equivalent to that given price. This work challenged the conventional assumptions of the Neoclassical school of thought that pricing is set through marginal analysis, or finding the intersection of marginal cost and marginal revenue to determine optimum price and quantity. The Marginalist response was not to deny the nonrealistic idealism of conscious marginal analysis, but to instead emphasize the use of marginalism as an economic instrument. Because marginalism has predictive power, it therefore renders the actual discovery processes of firms and entrepreneurs irrelevant. It is this theory that led Milton Friedman's following claim:</p>
+
+            <blockquote class="block-quote">
+                Business men do not actually and literally solve the system of simultaneous equations in terms of which the mathematical economist finds it convenient to express this hypothesis, any more than leaves or billiard players explicitly go through complicated mathematical calculations or falling bodies decide to create a vacuum.
+            </blockquote>
+
+            <p>In reality, firms and entrepreneurs "size" up situations in a manner that is implicitly marginal. The doctrine of "implicit marginalism" is the idea that firms do not deliberately and consciously equate marginal revenue with marginal cost, but in practice act as if they were doing so. Therefore, the reliability of a theory is dependent on whether it predicts outcomes, not tests of its assumptions. Alchian's paper provides a thoughtful critique on both Hall and Hitch's work while still incorporating the response of the marginalists.</p>
+
+            <p>According to Neoclassical theory, firms seek to maximize profits where marginal cost is equal to marginal revenue. However, there is an obvious information problem in that the amount and extent of knowledge required in order to equate marginal cost and revenue is costly to acquire. Further, the uncertain and risky future means that even if the necessary information existed, it would only exist in constantly changing and therefore unattainable state. Alchian therefore concludes that profit maximization is not a guide to action due this uncertainty and divides this uncertainty into two sources: imperfect foresight and the human inability to solve complex problems or in its essence, bounded rationality. Because of the infinite complexities of both present and future, humans lack the cognitive processing power to determine a profit maximizing function. Even in the best circumstances, where there is only risk of varying outcomes, there is no specifically maximizing outcome because the distribution of possible outcomes are necessarily overlapping. For example, if a firm is dealing with two different probability density functions, one of a larger mean but more variation and one of smaller mean but less variation that overlap, who is to say that choosing one over the other will result in a larger magnitude in its outcome. Consequently, we can only seek to optimize, not maximize. Armen Alchian also points out another flaw with Neoclassical theory: a firm's success is not dependent on objective maximization of profit but simply on results, the relevant result being whether the firm attained a positive or negative profit. The motivations by which individuals organize their capital are irrelevant, what matters is whether the firm succeeded or failed in attaining positive profits and therefore survival. The decisions of the economic system in determining a firm's viability are thus more important than the entrepreneurs and firms within. Further, Alchian specifies that the success of a firm depends on its relative position to its competitors, not necessarily absolute success: survival depends on relative superiority. What is perhaps most significant to note, however, is that success does not always result from conscious action but may result from "fortuitous circumstances."</p>
+
+            <p>Alchian uses an analogy to describe how these "fortuitous circumstances" function in real life through heliophilic, or sun-loving plants. While the seeds that are scattered into the sunlit areas of the garden grow and mature into flowers and the seeds that happen to land in the shade die, no one would ever claim that these plants consciously seek to maximize sunlight exposure. Instead, the plants that survive do so out of happenstance. In the market, firms work in the same way and thus emulate the Darwinian processes of biological evolution and natural selection. Like the plants, the survival of a few firms from the large number of firms that enter into the market may be due to random entrepreneurial decisions rather than some sort of Kirznerian insight. The success and survival rests upon the market response to what the firm is offering — firm profits do not serve as a direct link to decision making. Risk and uncertainty means that entrepreneurs have no way of creating an accurate explicit maximizing objective to guide their decisions. Therefore, firms do not have to consciously strive to maximize profits. Scarcity and competition ensure that the firms that do survive will appear as if they were maximizing profits. By introducing the impact of luck and chance, Alchian directly contradicts the mainstream view of perfect rationality in both firms and entrepreneurs.</p>
+
+            <p>Simply acknowledging that chance has a role in the economic process is not to say that economists are unable to make predictions. This is because over time, the natural culling forces of the market result in the remaining firms coming to share certain ascribable criteria. This convergence occurs because competing firms that mimic behavior of surviving firms will appear to be consciously maximizing profit even if the strategy was originally developed in the absence of a profit maximizing objective. Successful firms may not consciously maximize profits but act as if they do because market forces cull the firms that fail to yield positive returns, rendering the goals of the entrepreneur irrelevant. The firms that quickly emulate the behavior of successful firms have a greater chance of survival — surviving firms evolve in the direction of more economically profitable firms. Therefore, in hindsight, economists can observe the remaining firms and analyze the market as if they had been conscious profit maximizers. In seeking to understand the methods in which firms alter production strategies, he seeks to add realism by incorporating adaptation by individuals with foresight and motivation. Alchian recognizes the power of adaptation via two methods: innovation by chance and trial and error.</p>
+
+            <p>Behavioral economists agree with Alchian's claims that economics actors are not entirely rational, as psychological literature would seem to suggest that firms fail to act in the way that neoclassical models predict. However, Alchian's explanation of the role of market forces in shaping outcome contradicts the behaviorist claim against the predictability of marginal analysis. Alchian's conclusion originates from the same understanding regarding the significance of uncertainty, but describes the "defects" of profitable firms as strategies that actually support their relative success. In short, the inefficiencies observed in the market viewed as irrational must exist for a reason, or they would have been eliminated by market forces.</p>
+
+            <p>In summary, evolution and competition for scarce resources ensure that in practice, firms do not need to consciously maximize an objective function. That is not to say, however, that economists cannot analyze the behavior of firms using the assumptions of profit maximization. This is because even though all companies may not maximize profits, those that survive will be those whose managers either by luck or design, come close to maximizing profits. Therefore, the majority of the firms we observe will have optimized their production strategy in order to survive. Alchian's view of the evolution of the market offers a reconciliation between the predictability of marginalism and realism of human behavior and provides insight into human navigation of production in an uncertain world.</p>
+
+        </div>
+
+        <!-- Bibliography -->
+        <hr class="divider" style="margin-top: 2.5rem;">
+
+        <div class="mt-6">
+            <h2 class="text-lg font-semibold text-gray-900 mb-4">Bibliography</h2>
+            <div>
+                <p class="bibliography-entry">Alchian, Armen (1950) "Uncertainty, Evolution and Economic Theory." <em>Journal of Political Economy</em> 58 (June): 211–221.</p>
+                <p class="bibliography-entry">Friedman, Milton (1953). <em>Essays in Positive Economics</em>, University of Chicago Press.</p>
+                <p class="bibliography-entry">Friedman, D. (1998). Evolutionary economics goes mainstream: A review of the theory of learning in games. <em>Journal of Evolutionary Economics</em>, 8(4), 423–432.</p>
+                <p class="bibliography-entry">Hall, R.; Charles J. Hitch (1939). "Price Theory and Business Behaviour." <em>Oxford Economic Papers</em>. Oxford University Press. 2 (1): 12–45. JSTOR 2663449.</p>
+                <p class="bibliography-entry">Lott, John R., Jr. (1996). "Armen A. Alchian's Influence on Economics." <em>Economic Inquiry</em>.</p>
+                <p class="bibliography-entry">Winter, Sidney G. (2005) "Developing Evolutionary Theory for Economics and Management." In M. Hitt and K. G. Smith (eds). <em>The Oxford Handbook of Management Theory</em>, Oxford: Oxford University Press.</p>
+            </div>
+        </div>
+
+        <!-- Back link -->
+        <div class="mt-10 pt-6 border-t border-gray-200">
+            <a href="writing.html" style="color:var(--google-blue); font-size:0.9rem; text-decoration:none; display:inline-flex; align-items:center; gap:0.4rem;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+                ← Back to Writing
+            </a>
+        </div>
+
+    </div>
+</body>
+</html>
