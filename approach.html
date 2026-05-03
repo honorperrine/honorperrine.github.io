@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Honor Perrine - A Point of View on Analytics Infrastructure</title>
+    <title>Honor Perrine - A Point of View on Analytics</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
@@ -283,47 +283,53 @@
 
         <!-- Page header -->
         <div class="mb-10">
-            <p class="byline uppercase tracking-widest text-xs mb-2" style="color: var(--google-blue);">Point of View</p>
+            <p class="byline uppercase tracking-widest text-xs mb-2" style="color: var(--google-blue);">My Approach</p>
             <h1 class="text-3xl font-bold text-gray-900 tracking-tight leading-tight">A Point of View on Analytics Infrastructure</h1>
-            <p class="byline mt-2">Honor Perrine &nbsp;·&nbsp; Capital Programs & Quantitative Analytics</p>
         </div>
 
         <!-- Section 1: The Problem -->
         <section class="mb-8 fade-in">
-            <h2 class="section-title text-2xl font-semibold">The Problem with Ad-Hoc Analytics</h2>
+            <h2 class="section-title text-2xl font-semibold">The Analyst and the Principal-Agent Problem</h2>
 
-            <p>Most analytics environments don't fail because of bad analysts. They fail because good analysts build things that only they understand.</p>
+            <p>The principal-agent problem describes the conflict of interest arising when an agent acts on behalf of a principal with different objectives and private information. Within the context of better understanding modern analytics teams, the analyst will optimize for indispensability and output delivery at the expense of robustness, transferability, and transparency.</p>
 
-            <p>The pattern is familiar: a capable person inherits a reporting need, builds something that works, and becomes the single point of failure for everything downstream. Reports live in personal folders. Metric definitions exist in someone's memory. When that person leaves, the reports break — or worse, they keep running but nobody knows if the numbers are right.</p>
+            <p>Most often, stakeholders cannot distinguish a well-architected analytical solution from a fragile one, and analysts only face pressure to build systems for longevity until a point of failure is discovered.</p>
 
-            <div class="pull-quote">
-                <p>The moment of reckoning is usually the same: a bad number reaches senior leadership. Not because anyone was careless, but because there was no infrastructure to catch it. That's not an analyst problem. It's an architecture problem.</p>
-            </div>
-
-            <p>The instinct is to fix the report. The right move is to fix the foundation.</p>
+            <p>Once surfaced, this vulnerability can result in a wholesale dismissal of an entire analytics solution. Thus, the answer is not to remake the reports, it is to build a modular, intuitive, and institutionalized foundation. </p>
         </section>
 
         <!-- Section 2: The Framework -->
         <section class="mb-8 fade-in">
-            <h2 class="section-title text-2xl font-semibold">The Framework: Four Layers of Institutional Analysis</h2>
+            <h2 class="section-title text-2xl font-semibold">The Framework: Build Slow to Act Fast</h2>
 
-            <p>Scalable analytics isn't about building more reports. It's about building the right foundation so that every report that follows is faster to build, easier to trust, and survives the people who created it.</p>
+            <p>Scalability means building the right resources so that every ensuing report is faster to create, easier to trust, and outlasts the individuals who created it.</p>
 
             <!-- Diagram -->
             <div class="diagram-container">
                 <p class="text-xs uppercase tracking-widest font-semibold text-gray-400 mb-4 text-center">Analytics Infrastructure Stack</p>
 
-                <!-- Layer 4: Reporting -->
-                <div class="layer layer-4">
-                    <div class="layer-label">Layer 4 — Output</div>
-                    <div class="layer-title">Reporting & Visualization</div>
-                    <div class="layer-desc">Standardized dashboards and reports with consistent visual language — color coding, layout templates, metric naming, data source and refresh date on every output. Methodology documented as a data flow diagram so non-technical stakeholders can follow the logic.</div>
+                <!-- Layer 1: Warehouse -->
+                <div class="layer layer-1">
+                    <div class="layer-label">Layer 1 — Foundation</div>
+                    <div class="layer-title">Data Warehouse</div>
+                    <div class="layer-desc">Raw data from source systems — ERP platforms, operational inputs, external feeds — consolidated into a single structured environment.</div>
                     <div class="layer-tags">
-                        <span class="layer-tag">Power BI</span>
-                        <span class="layer-tag">Tableau</span>
-                        <span class="layer-tag">Paginated Reports</span>
-                        <span class="layer-tag">Standard Templates</span>
-                        <span class="layer-tag">Flow Diagrams</span>
+                        <span class="layer-tag">Source Systems</span>
+                    </div>
+                </div>
+
+                <div class="arrow"><span class="arrow-icon">↑ ingests ↑</span></div>
+
+                <!-- Layer 2: Gold Layer -->
+                <div class="layer layer-2">
+                    <div class="layer-label">Layer 2 — Logic</div>
+                    <div class="layer-title">Gold Layer — Institutionalized Business Logic</div>
+                    <div class="layer-desc">Standardized SQL views, calculated fields, and pre-built datasets representing agreed business definitions.</div>
+                    <div class="layer-tags">
+                        <span class="layer-tag">SQL Views</span>
+                        <span class="layer-tag">Universal Measures</span>
+                        <span class="layer-tag">Pre-built Datasets</span>
+                        <span class="layer-tag">Shared Definitions</span>
                     </div>
                 </div>
 
@@ -332,48 +338,35 @@
                 <!-- Layer 3: Governance -->
                 <div class="layer layer-3">
                     <div class="layer-label">Layer 3 — Trust</div>
-                    <div class="layer-title">Data Definitions & Governance</div>
-                    <div class="layer-desc">Every metric has a name, definition, source, and owner. Changes are documented and communicated. Audit automation runs continuously to catch anomalies before they reach a report. Stakeholder alignment is required before any definition is institutionalized.</div>
+                    <div class="layer-title">Governance</div>
+                    <div class="layer-desc">Changes are documented and communicated. Audit automation runs continuously to reconcile between systems and reports. Dataflows are mapped and metrics are defined for both internal and external reference.</div>
                     <div class="layer-tags">
-                        <span class="layer-tag">Data Dictionary</span>
                         <span class="layer-tag">Audit Automation</span>
                         <span class="layer-tag">SOPs</span>
+                        <span class="layer-tag">Dataflow Diagrams</span>
                         <span class="layer-tag">Stakeholder Sign-off</span>
                     </div>
                 </div>
 
                 <div class="arrow"><span class="arrow-icon">↑ feeds ↑</span></div>
-
-                <!-- Layer 2: Gold Layer -->
-                <div class="layer layer-2">
-                    <div class="layer-label">Layer 2 — Logic</div>
-                    <div class="layer-title">Gold Layer — Institutionalized Business Logic</div>
-                    <div class="layer-desc">Standardized SQL views, calculated fields, and pre-built datasets representing agreed business definitions. This is where questions like "how is budget variance calculated?" and "what counts as an active renovation?" are answered — once, authoritatively, for every report downstream.</div>
+                
+                <!-- Layer 4: Reporting -->
+                <div class="layer layer-4">
+                    <div class="layer-label">Layer 4 — Output</div>
+                    <div class="layer-title">Reporting & Visualization</div>
+                    <div class="layer-desc">Standardized dashboards and reports with consistent visual language — color coding, layout templates, metric naming, data source and refresh dates on each report.</div>
                     <div class="layer-tags">
-                        <span class="layer-tag">SQL Views</span>
-                        <span class="layer-tag">DAX Measures</span>
-                        <span class="layer-tag">Pre-built Datasets</span>
-                        <span class="layer-tag">Shared Definitions</span>
+                        <span class="layer-tag">Institutional Dashboards</span>
+                        <span class="layer-tag">Ad Hoc Reports</span>
                     </div>
                 </div>
 
                 <div class="arrow"><span class="arrow-icon">↑ feeds ↑</span></div>
 
-                <!-- Layer 1: Warehouse -->
-                <div class="layer layer-1">
-                    <div class="layer-label">Layer 1 — Foundation</div>
-                    <div class="layer-title">Data Warehouse</div>
-                    <div class="layer-desc">Raw data from source systems — ERP platforms, operational inputs, external feeds — consolidated into a single structured environment. Nothing above this layer is reliable if this layer isn't clean, consistent, and governed.</div>
-                    <div class="layer-tags">
-                        <span class="layer-tag">Source Systems</span>
-                        <span class="layer-tag">ETL / ELT</span>
-                        <span class="layer-tag">SQL</span>
-                        <span class="layer-tag">Data Validation</span>
-                        <span class="layer-tag">M Query</span>
-                    </div>
-                </div>
 
-                <div class="arrow"><span class="arrow-icon">↑ ingests ↑</span></div>
+
+
+
 
                 <!-- Source Systems -->
                 <div style="background:#f8f9fa; border: 1px dashed #dadce0; border-radius:8px; padding: 0.85rem 1.5rem;">
