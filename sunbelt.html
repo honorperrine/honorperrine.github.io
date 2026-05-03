@@ -1,1 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honor Perrine - On the Sunbelt: Seeds of Sprawl</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --google-blue: #4285F4;
+            --cream: #fefdfb;
+            --text-dark: #202124;
+            --text-medium: #5f6368;
+        }
 
+        body {
+            font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+            background-color: var(--cream);
+        }
+
+        .resume-card {
+            background-color: var(--cream);
+            box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 2px 6px 2px rgba(60,64,67,.15);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .resume-card:hover {
+            box-shadow: 0 1px 3px 0 rgba(60,64,67,.3), 0 4px 8px 3px rgba(60,64,67,.15);
+        }
+
+        .nav-link {
+            transition: all 0.2s ease;
+            border-bottom: 2px solid transparent;
+            font-weight: 500;
+            color: var(--text-medium);
+            padding-bottom: 4px;
+        }
+
+        .nav-link:hover {
+            color: var(--google-blue);
+            border-bottom-color: rgba(66, 133, 244, 0.3);
+        }
+
+        .byline {
+            font-size: 0.85rem;
+            color: var(--text-medium);
+            letter-spacing: 0.02em;
+        }
+
+        .metadata {
+            font-size: 0.85rem;
+            color: var(--text-medium);
+            line-height: 1.7;
+        }
+
+        .divider {
+            border: none;
+            border-top: 2px solid #e8eaed;
+            margin: 2.25rem 0;
+            position: relative;
+        }
+
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 0;
+            width: 48px;
+            height: 2px;
+            background: var(--google-blue);
+        }
+
+        .article-body p {
+            color: #3c4043;
+            line-height: 1.85;
+            margin-bottom: 1.4rem;
+            font-size: 1rem;
+        }
+
+        .article-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .part-header {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--google-blue);
+            margin-bottom: 0.75rem;
+            margin-top: 0;
+        }
+
+        .part-block {
+            margin-bottom: 0;
+        }
+
+        .section-rule {
+            border: none;
+            border-top: 1px solid #e8eaed;
+            margin: 2.25rem 0;
+        }
+
+        .investment-block {
+            border-left: 3px solid #e8eaed;
+            padding: 0.85rem 1.25rem;
+            margin: 1.25rem 0;
+            border-radius: 0 6px 6px 0;
+            background: rgba(66, 133, 244, 0.02);
+            position: relative;
+        }
+
+        .investment-block::before {
+            content: '';
+            position: absolute;
+            left: -3px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--google-blue);
+            border-radius: 2px 0 0 2px;
+        }
+
+        .investment-block p {
+            color: #3c4043;
+            line-height: 1.8;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .investment-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--google-blue);
+            margin-bottom: 0.4rem;
+        }
+
+        .lede {
+            font-size: 1.05rem;
+            color: #3c4043;
+            line-height: 1.85;
+            margin-bottom: 1.4rem;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8 lg:p-12">
+
+    <div class="max-w-4xl mx-auto resume-card rounded-lg p-8 md:p-10 lg:p-12">
+
+        <nav class="flex justify-center space-x-8 mb-8 pb-4 border-b border-gray-200">
+            <a href="index.html" class="nav-link">Resume</a>
+            <a href="approach.html" class="nav-link">My Approach</a>
+            <a href="writing.html" class="nav-link">Writing</a>
+        </nav>
+
+        <!-- Article header -->
+        <div class="mb-8">
+            <p class="byline uppercase tracking-widest text-xs mb-2" style="color: var(--google-blue);">Writing</p>
+            <h1 class="text-3xl font-bold text-gray-900 tracking-tight leading-tight mb-4">On the Sunbelt: Seeds of Sprawl</h1>
+            <div class="metadata">
+                <span>Honor Perrine</span>
+                <span class="mx-2" style="color:#e8eaed;">•</span>
+                <span>Multifamily Real Estate</span>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="article-body mt-8">
+
+            <!-- Lede -->
+            <p class="lede">Throughout the last two years, the multifamily industry has counted down the clock waiting for the tidal wave of new apartment supply in Southern cities — Austin, Atlanta, Nashville — to dissipate. Just three years ago, these markets were red-hot, drawing unprecedented coastal migration and soaring rent growth. Explaining the reversal is, on its surface, simple: in a free market, demand begets supply until demand is met. Pandemic migration, remote work, and the Federal Reserve account for the rest. But these explanations describe what happened, not why the South was structurally positioned to let it happen at scale. The more useful question is why the Sunbelt is historically prone to oversupply — and the answer begins not in 2020, but in 1618.</p>
+
+            <hr class="section-rule">
+
+            <!-- Part One -->
+            <div class="part-block">
+                <p class="part-header">Part One — A Tale of Two Colonies</p>
+                <p>America's bifurcated housing landscape traces back to two distinct land distribution systems employed by the original thirteen colonies. Northern settlers organized around collective ownership and tight-knit communities. Southern colonies prioritized large-scale private acquisition for commercial purposes. These were not incidental differences — they were foundational ones, and their consequences compound across centuries.</p>
+                <p>The largest original Northern cities, Boston and New York, were founded on narrow land straits surrounded by water. Their economic function was maritime trade: exporting timber, furs, and fish in exchange for manufactured goods from the Old World and the West Indies. Deep-water port access was not a preference but a survival condition. Cold climate, rocky shores, and limited agricultural technology further constrained early sprawl, while the harsh landscape offered natural defense against hostile indigenous groups.</p>
+                <p>Northern colonists were also, in large part, deeply religious. Puritanical cultural influences drove a communitarian orientation to daily life, resulting in land grants centered around a town common. This institutionalized collective interest in surrounding land made large-scale, disruptive development politically difficult — even beyond urban centers. Legally, land consolidation was slow and expensive. Property lines were defined by "Metes and Bounds," tied to geographical features and landmarks, producing small parcels that were irregular, ambiguous, and legally complex to transfer.</p>
+                <p>Southern colonizers encountered an entirely different geography. Vast, fertile lowlands proved ideal for growing tobacco and later cotton — staple crops that demanded scale. In 1618, King James I chartered the Virginia Company with the objective of colonizing eastern North America. When early settlements faced mass starvation and indigenous attacks, the company responded with the Headright System: fifty acres of land per person sponsored in passage to the New World. Wealthy British farmers imported family members, indentured servants, and eventually enslaved Africans in exchange for land, triggering rapid expansion of vast, contiguous commercial plantations.</p>
+                <p>Wealth and political power became deeply entrenched with large-scale land ownership and the command of labor. Settlement patterns were highly dispersed. Where the North concentrated power in community organizations, the South placed it in individual landowners — a structural difference that would prove durable across every subsequent era of American development.</p>
+            </div>
+
+            <hr class="section-rule">
+
+            <!-- Part Two -->
+            <div class="part-block">
+                <p class="part-header">Part Two — The United States Sets the Standard</p>
+                <p>Post-revolution, the newly ratified American government faced the challenge of settling the Western territories won from Britain under the Proclamation of 1763 — stretching from the western edge of the original thirteen states to the Mississippi River. The Metes and Bounds system was wholly inadequate at this scale. Its replacement would reshape American development for centuries.</p>
+                <p>The Public Land Survey System, established in 1785, divided territory into a uniform grid along longitudinal and latitudinal lines. The base unit was the township — six miles by six miles — subdivided into thirty-six one-square-mile sections. The system created legal transparency and allowed Americans to purchase land in remote territories sight-unseen with defensible title. It would ultimately apply to 75% of United States territory, including all states west of the Ohio and Mississippi Rivers.</p>
+                <p>For the Northeast, the PLSS arrived too late to matter. Dense, irregular street patterns and entrenched property structures were already established. Urban coastal real estate would remain characterized by complex legal negotiations and irregular boundaries — a constraint that, as we will see, functions as structural protection against oversupply.</p>
+                <p>For the South, the PLSS accelerated an already top-heavy economic structure. Plantation owners rapidly consolidated massive tracts within nearby western territories, acquiring, selling, and mortgaging large holdings with new efficiency. The cotton economy expanded westward. Local Southern governments, dominated by the landowning class, continued to favor this settlement pattern through minimal taxation and regulatory neglect. The PLSS did not create the Southern land bias — it industrialized it.</p>
+            </div>
+
+            <hr class="section-rule">
+
+            <!-- Part Three -->
+            <div class="part-block">
+                <p class="part-header">Part Three — Disruption and Re-Establishment</p>
+                <p>The United States had one meaningful opportunity to restructure the divergent land cultures of the North and South: the defeat of the Confederacy and the Reconstruction Era.</p>
+                <p>In 1865, Union General William Sherman issued Special Field Order No. 15. Known for its promise of "40 Acres and a Mule," the order earmarked 400,000 acres in the American South for resettlement by formerly enslaved families. It proposed segmenting existing plantations into smaller individual holdings — a direct threat to the centuries-old premise of Southern economic life. Had it taken root, it might have promoted greater density and localized economies built on commerce between smallholders, rather than the export-driven plantation model.</p>
+                <p>It did not take root. President Lincoln was assassinated, and his successor, Andrew Johnson — a North Carolinian Democrat and committed constitutionalist — issued broad amnesty to former Confederates, stipulating the return of confiscated property. Most of the land earmarked by Sherman reverted to its former owners. The radical Republican Congress impeached Johnson and passed the Southern Homestead Act of 1866 in its place, but the policy was severely limited: the available land was remote, often of poor agricultural quality, and insufficient to compete with entrenched private holdings. It was repealed within a decade.</p>
+                <p>Reconstruction's failure ensured that political and economic power in the South remained anchored in expansive landholdings and weak local regulatory structures. The conditions that would later enable institutional overbuilding were preserved intact.</p>
+            </div>
+
+            <hr class="section-rule">
+
+            <!-- Part Four -->
+            <div class="part-block">
+                <p class="part-header">Part Four — Industrialization and Cementation</p>
+                <p>As the industrial revolution transformed American urban centers, Northern cities pioneered zoning. Originating in New York City in 1916, early zoning was a direct response to rapid urbanization — an attempt to reduce congestion and protect residents from disease, pollution, and overcrowding, and to preserve property values and neighborhood character. The impulse was continuous with the communitarian orientation of the original Northern colonists: collective governance of land use as a public interest.</p>
+                <p>The South carried its own colonial legacy into the twentieth century, but deployed early zoning differently. Cities like Dallas, Houston, and Atlanta adopted policies mandating low-density, single-family development, codifying the large-parcel bias established centuries prior. Zoning was also used to reinforce racial and economic segregation: desirable, predominantly white neighborhoods were protected by single-family mandates on large lots, while Black neighborhoods were frequently classified as industrial or left undetermined, offering no protection against encroachment.</p>
+                <p>True industrialization arrived in the South and West during the post-World War II boom. The federal government poured billions into aerospace, defense, and electronics manufacturing across the region. Southern states passed Right-to-Work laws throughout the 1940s, discouraging unionization and suppressing labor costs relative to the heavily unionized North. State and local governments offered tax incentives and lighter regulation to attract capital. Air conditioning and the Interstate Highway System made sprawl livable. The Federal Housing Administration and Veterans Administration brought government-backed mortgage insurance to market, making homeownership accessible to millions for the first time and deepening the region's suburban orientation.</p>
+                <p>By the 1960s, Northern industrial power was waning under pressure from automation, higher labor costs, and global competition. Capital and population migrated southward. By 1969, political analyst Kevin Phillips had coined the term "Sunbelt" to describe a region now defined by military spending, suburban development, and aggressive economic growth. The southward migration continued through the 1990s and 2000s, cementing the Sunbelt's identity as a high-growth investment target and reinforcing its structural bias toward deregulation and large-parcel development.</p>
+            </div>
+
+            <hr class="section-rule">
+
+            <!-- Part Five -->
+            <div class="part-block">
+                <p class="part-header">Part Five — Crisis, Capital, and the Rental Market</p>
+                <p>The Great Financial Crisis of 2008 was a mortgage lending failure, but the Sunbelt's structural elasticity made it uniquely vulnerable to the boom that preceded it and the dislocation that followed. Vast available land, low regulatory friction, and gridded PLSS parcels created ideal conditions for rapid, large-scale residential development. When the bubble burst, foreclosure rates were highest in these fast-built suburban markets. Millions of displaced homeowners entered the rental market simultaneously, generating a demand signal the industry had not previously seen at that scale.</p>
+                <p>The investment community recognized the Sunbelt's demonstrated capacity to rapidly create and absorb both rental demand and new supply. Private equity and institutional capital moved quickly, capitalizing on cheap land and distressed single-family homes to establish the Single-Family Rental asset class at scale. This was only possible in markets with the contiguous, readily available large parcels that the PLSS legacy and agrarian land culture had preserved. The Sunbelt was not just absorbing capital — it was purpose-built for it.</p>
+            </div>
+
+            <hr class="section-rule">
+
+            <!-- Part Six -->
+            <div class="part-block">
+                <p class="part-header">Part Six — Supply Elasticity and the Modern Multifamily Cycle</p>
+                <p>The events of 2020 through 2023 were a precise demonstration of the Sunbelt's historical design operating as intended.</p>
+                <p>When pandemic migration and remote work drove demand to levels the market had not anticipated, the Sunbelt offered the path of least resistance for capital deployment. Institutional investors poured billions into land acquisition and development, drawn by higher yields than those available in supply-constrained coastal cities. The region's predictable gridded land, politically weak local governance, and low regulatory friction meant developers could move from concept to construction in record time. They did.</p>
+                <p>The result is the current correction: oversupply hitting Austin, Nashville, and Atlanta not because demand failed, but because the elastic Sunbelt supply model executed exactly as its historical structure dictates. The boom and the bust are the same mechanism.</p>
+            </div>
+
+            <hr class="section-rule">
+
+            <!-- Investment Implications -->
+            <div class="part-block">
+                <p class="part-header">Investment Implications</p>
+                <p>Understanding the historical architecture of these markets is the precondition for setting rational investment expectations.</p>
+
+                <div class="investment-block">
+                    <p class="investment-label">Inelastic Markets — Boston, New York, the Coastal Northeast</p>
+                    <p>These markets prioritize capital preservation and steady rent growth. Their historical constraints are structural protection against oversupply. The primary investment risk is political: zoning reform, not market saturation. The strategy is Core and Core-Plus, targeting supply-demand imbalances that persist over long time horizons.</p>
+                </div>
+
+                <div class="investment-block">
+                    <p class="investment-label">Elastic Markets — The Sunbelt</p>
+                    <p>These markets run shorter, more volatile cycles. The current oversupply is not a market failure — it is the cost of elasticity. Capital that entered during the boom is now confronting the bust. The opportunity it creates is real but narrow: acquisitions from developers and owners forced to transact at discounted prices during lease-up distress, timed to the eventual absorption of the supply glut. Success in these markets demands cycle discipline — the willingness to wait, and the precision to act at the trough.</p>
+                </div>
+
+                <p style="margin-top: 1.4rem;">The historical differences between these regions are not background context. They are the investment thesis. The Northeast offers the security of supply control. The Sunbelt offers the potential for cyclical alpha, for investors who understand that the same forces enabling the upside will, without exception, produce the correction.</p>
+            </div>
+
+        </div>
+
+        <!-- Back link -->
+        <div class="mt-10 pt-6 border-t border-gray-200">
+            <a href="writing.html" style="color:var(--google-blue); font-size:0.9rem; text-decoration:none; display:inline-flex; align-items:center; gap:0.4rem;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+                ← Back to Writing
+            </a>
+        </div>
+
+    </div>
+</body>
+</html>
