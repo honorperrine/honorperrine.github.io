@@ -74,20 +74,19 @@
             transition: color 0.15s ease;
         }
 
-        /* Diagram styles */
+        /* Diagram container */
         .diagram-container {
             background: white;
             border-radius: 12px;
-            padding: 2rem;
+            padding: 1.5rem;
             box-shadow: 0 1px 3px rgba(60,64,67,.2), 0 2px 8px rgba(60,64,67,.1);
             margin: 2rem 0;
-            overflow-x: auto;
         }
 
+        /* Layer styles */
         .layer {
             border-radius: 8px;
-            padding: 1rem 1.5rem;
-            margin: 0.5rem 0;
+            padding: 0.75rem 1rem;
             position: relative;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
@@ -97,107 +96,90 @@
             box-shadow: -4px 0 0 var(--google-blue);
         }
 
-        .layer-5 {
-            background: rgba(123,97,255,0.07);
-            border: 1px solid rgba(123,97,255,0.25);
-        }     
-
-        .layer-4 {
-            background: rgba(66, 133, 244, 0.08);
-            border: 1px solid rgba(66, 133, 244, 0.25);
-        }
-
-        .layer-3 {
-            background: rgba(15, 157, 88, 0.07);
-            border: 1px solid rgba(15, 157, 88, 0.25);
-        }
-
-        .layer-2 {
-            background: rgba(244, 180, 0, 0.07);
-            border: 1px solid rgba(244, 180, 0, 0.3);
-        }
-
-        .layer-1 {
-            background: rgba(219, 68, 55, 0.06);
-            border: 1px solid rgba(219, 68, 55, 0.2);
-        }
+        .layer-1 { background: rgba(219,68,55,0.06);   border: 1px solid rgba(219,68,55,0.2); }
+        .layer-2 { background: rgba(244,180,0,0.07);   border: 1px solid rgba(244,180,0,0.3); }
+        .layer-3 { background: rgba(15,157,88,0.07);   border: 1px solid rgba(15,157,88,0.25); }
+        .layer-4 { background: rgba(66,133,244,0.08);  border: 1px solid rgba(66,133,244,0.25); }
+        .layer-5 { background: rgba(123,97,255,0.07);  border: 1px solid rgba(123,97,255,0.25); }
 
         .layer-label {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.2rem;
         }
 
-        .layer-5 .layer-tag { background: rgba(123,97,255,0.12); color: var(--google-purple); }
-        .layer-4 .layer-label { color: var(--google-blue); }
-        .layer-3 .layer-label { color: var(--google-green); }
-        .layer-2 .layer-label { color: #b8860b; }
         .layer-1 .layer-label { color: var(--google-red); }
+        .layer-2 .layer-label { color: #b8860b; }
+        .layer-3 .layer-label { color: var(--google-green); }
+        .layer-4 .layer-label { color: var(--google-blue); }
+        .layer-5 .layer-label { color: var(--google-purple); }
 
         .layer-title {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
             color: var(--text-dark);
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.2rem;
         }
 
         .layer-desc {
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: var(--text-medium);
-            line-height: 1.5;
+            line-height: 1.55;
+            margin: 0;
         }
 
-        .layer-tags {
+        /* Stack diagram layout */
+        .stack-outer {
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.35rem;
-            margin-top: 0.5rem;
+            gap: 0.5rem;
+            align-items: stretch;
         }
 
-        .layer-tag {
-            font-size: 0.7rem;
-            padding: 0.15rem 0.5rem;
-            border-radius: 20px;
-            font-family: 'Courier New', monospace;
-            font-weight: 600;
+        .stack-layers {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
         }
 
-        .layer-5 .layer-tag { background: rgba(123,97,255,0.12); color: var(--google-purple); }
-        .layer-4 .layer-tag { background: rgba(66,133,244,0.12); color: var(--google-blue); }
-        .layer-3 .layer-tag { background: rgba(15,157,88,0.12); color: var(--google-green); }
-        .layer-2 .layer-tag { background: rgba(244,180,0,0.15); color: #8a6400; }
-        .layer-1 .layer-tag { background: rgba(219,68,55,0.1); color: var(--google-red); }
-
-        .arrow {
+        .down-arrow {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 28px;
-            color: #bdc1c6;
-            font-size: 1.2rem;
+            height: 22px;
+            flex-shrink: 0;
+        }
+
+        .loopback-col {
+            width: 44px;
             position: relative;
+            flex-shrink: 0;
         }
 
-        .arrow::before {
-            content: '';
+        .loopback-col svg {
             position: absolute;
-            left: 50%;
             top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, #e8eaed, #bdc1c6);
-            transform: translateX(-50%);
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
 
-        .arrow-icon {
-            background: white;
-            padding: 2px 6px;
-            border-radius: 4px;
-            z-index: 1;
-            color: #9aa0a6;
-            font-size: 0.8rem;
+        .loopback-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(90deg);
+            white-space: nowrap;
+            font-size: 0.58rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--google-blue);
+            opacity: 0.6;
+            font-family: 'Courier New', monospace;
+            pointer-events: none;
         }
 
         /* Pull quote */
@@ -217,43 +199,80 @@
             margin: 0;
         }
 
-        /* Section headers */
-        .section-header {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin: 2rem 0 0.75rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .section-header::before {
-            content: '';
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        .section-header.blue::before { background: var(--google-blue); }
-        .section-header.green::before { background: var(--google-green); }
-        .section-header.yellow::before { background: var(--google-yellow); }
-        .section-header.red::before { background: var(--google-red); }
-        .section-header.purple::before {background: var(--google-purplee); }
-        .section-header.gray::before { background: #9aa0a6; }
-
         body p {
             color: #3c4043;
             line-height: 1.75;
             margin-bottom: 1rem;
         }
 
-        .skill-tag {
-            background-color: rgba(66, 133, 244, 0.08);
-            color: var(--google-blue);
-            border: 1px solid rgba(66, 133, 244, 0.2);
+        /* Case study bullets */
+        .cs-outer {
+            display: flex;
+            gap: 0.5rem;
+            align-items: stretch;
+        }
+
+        .cs-bullets {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bullet-item {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+            padding: 0.65rem 0;
+            border-bottom: 1px solid #f1f3f4;
+        }
+
+        .bullet-item:last-child {
+            border-bottom: none;
+        }
+
+        .bullet-diamond {
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+            line-height: 1;
+        }
+
+        .bullet-text {
+            font-size: 0.93rem;
+            color: #3c4043;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .cs-loopback-col {
+            width: 44px;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .cs-loopback-col svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .cs-loopback-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(90deg);
+            white-space: nowrap;
+            font-size: 0.58rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--google-purple);
+            opacity: 0.6;
+            font-family: 'Courier New', monospace;
+            pointer-events: none;
         }
 
         /* Fade in animation */
@@ -279,51 +298,6 @@
             letter-spacing: 0.02em;
             margin-top: 0.25rem;
         }
-
-        .loopback-arrow {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin: 0.75rem 0 0.25rem 0;
-            padding-left: 0.5rem;
-        }
-
-        .loopback-line {
-            position: relative;
-            width: 28px;
-            height: 60px;
-            flex-shrink: 0;
-        }
-
-        .loopback-line::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to top, var(--google-blue), rgba(66,133,244,0.3));
-            border-radius: 2px;
-        }
-
-        .loopback-line::after {
-            content: '↑';
-            position: absolute;
-            top: -8px;
-            left: -5px;
-            color: var(--google-blue);
-            font-size: 0.85rem;
-        }
-
-        .loopback-label {
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--google-blue);
-            opacity: 0.7;
-            font-family: 'Courier New', monospace;
-        }
     </style>
 </head>
 <body class="p-4 sm:p-8 lg:p-12">
@@ -338,7 +312,7 @@
         <!-- Page header -->
         <div class="mb-10">
             <p class="byline uppercase tracking-widest text-xs mb-2" style="color: var(--google-blue);">My Approach</p>
-            <h1 class="text-3xl font-bold text-gray-900 tracking-tight leading-tight">A Point of View on Analytics Infrastructure</h1>
+            <h1 class="text-3xl font-bold text-gray-900 tracking-tight leading-tight">A Point of View on Analytics</h1>
         </div>
 
         <!-- Section 1: The Problem -->
@@ -349,91 +323,96 @@
 
             <p>Most often, stakeholders cannot distinguish a well-architected analytical solution from a fragile one, and analysts only face pressure to build systems for longevity until a point of failure is discovered.</p>
 
-            <p>Once surfaced, this vulnerability can result in a wholesale dismissal of an entire analytics solution. Thus, the answer is not to remake the reports, it is to build a modular, intuitive, and institutionalized foundation. </p>
+            <p>Once surfaced, this vulnerability can result in a wholesale dismissal of an entire analytics solution. Thus, the answer is not to remake the reports, it is to build a modular, intuitive, and institutionalized foundation.</p>
         </section>
 
         <!-- Section 2: The Framework -->
         <section class="mb-8 fade-in">
             <h2 class="section-title text-2xl font-semibold">The Framework: Build Slow to Act Fast</h2>
 
-            <p>Scalability means building the right resources so that every ensuing report is faster to create, easier to trust, and outlasts the individuals who created it.</p>
+            <p>Scalability means building the right resources so that every ensuing report is faster to create, easier to trust, and outlasts the individuals who created it. When built well, reports provide actionable insight fast, with minimal involvement from the analyst teams day to day.</p>
 
-            <!-- Diagram -->
+            <!-- Stack Diagram -->
             <div class="diagram-container">
-                <p class="text-xs uppercase tracking-widest font-semibold text-gray-400 mb-4 text-center">The Stack</p>
+                <p style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.12em;font-weight:700;color:#9aa0a6;text-align:center;margin:0 0 1rem;">The Stack</p>
 
-                <!-- Layer 1: Warehouse -->
-                <div class="layer layer-1">
-                    <div class="layer-label">Layer 1 — Foundation</div>
-                    <div class="layer-title">Data Warehouse</div>
-                    <div class="layer-desc">Raw data from source systems — ERP platforms, operational inputs, external feeds — consolidated into a single structured environment.</div>
-                    <div class="layer-tags">
-                        <span class="layer-tag">Source Systems</span>
+                <div class="stack-outer">
+                    <!-- Layers column -->
+                    <div class="stack-layers">
+
+                        <div class="layer layer-1" id="stack-layer1">
+                            <div class="layer-label">Layer 1 — Foundation</div>
+                            <div class="layer-title">Data Warehouse</div>
+                            <p class="layer-desc">Raw data from source systems — ERP platforms, operational inputs, external feeds — consolidated into a structured environment.</p>
+                        </div>
+
+                        <div class="down-arrow">
+                            <svg width="20" height="22" viewBox="0 0 20 22" fill="none">
+                                <line x1="10" y1="1" x2="10" y2="15" stroke="#bdc1c6" stroke-width="1.5"/>
+                                <polyline points="5,12 10,19 15,12" stroke="#bdc1c6" stroke-width="1.5" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+
+                        <div class="layer layer-2">
+                            <div class="layer-label">Layer 2 — Logic</div>
+                            <div class="layer-title">Gold Layer — Institutionalized Business Logic</div>
+                            <p class="layer-desc">Standardized SQL views, calculated fields, and pre-built datasets representing agreed business definitions.</p>
+                        </div>
+
+                        <div class="down-arrow">
+                            <svg width="20" height="22" viewBox="0 0 20 22" fill="none">
+                                <line x1="10" y1="1" x2="10" y2="15" stroke="#bdc1c6" stroke-width="1.5"/>
+                                <polyline points="5,12 10,19 15,12" stroke="#bdc1c6" stroke-width="1.5" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+
+                        <div class="layer layer-3">
+                            <div class="layer-label">Layer 3 — Trust</div>
+                            <div class="layer-title">Governance</div>
+                            <p class="layer-desc">Changes are documented and communicated. Audit automation runs continuously to reconcile between systems and reports. Dataflows are mapped and metrics are defined for both internal and external reference.</p>
+                        </div>
+
+                        <div class="down-arrow">
+                            <svg width="20" height="22" viewBox="0 0 20 22" fill="none">
+                                <line x1="10" y1="1" x2="10" y2="15" stroke="#bdc1c6" stroke-width="1.5"/>
+                                <polyline points="5,12 10,19 15,12" stroke="#bdc1c6" stroke-width="1.5" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+
+                        <div class="layer layer-4">
+                            <div class="layer-label">Layer 4 — Output</div>
+                            <div class="layer-title">Reporting & Visualization</div>
+                            <p class="layer-desc">Standardized dashboards and reports with consistent visual language — color coding, layout templates, metric naming, data source and refresh dates on each report. Ad-hoc reports can be created quickly and reliably utilizing the underlying analysis layers.</p>
+                        </div>
+
+                        <div class="down-arrow">
+                            <svg width="20" height="22" viewBox="0 0 20 22" fill="none">
+                                <line x1="10" y1="1" x2="10" y2="15" stroke="#bdc1c6" stroke-width="1.5"/>
+                                <polyline points="5,12 10,19 15,12" stroke="#bdc1c6" stroke-width="1.5" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+
+                        <div class="layer layer-5" id="stack-layer5">
+                            <div class="layer-label">Layer 5 — Feedback</div>
+                            <div class="layer-title">Systematically Incorporating Feedback</div>
+                            <p class="layer-desc">Engaging in open dialogue and regular check-ins with stakeholders, enabling the solution to evolve to meet business needs.</p>
+                        </div>
+
+                    </div>
+
+                    <!-- Loopback arrow column -->
+                    <div class="loopback-col" id="stack-loopback-col">
+                        <svg id="stack-loopback-svg" viewBox="0 0 44 100" preserveAspectRatio="none">
+                            <defs>
+                                <marker id="stack-arrow-up" viewBox="0 0 10 10" refX="5" refY="8" markerWidth="7" markerHeight="7" orient="auto">
+                                    <path d="M2 8L5 2L8 8" fill="none" stroke="#4285F4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </marker>
+                            </defs>
+                            <path id="stack-loopback-path" fill="none" stroke="#4285F4" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.65" marker-end="url(#stack-arrow-up)"/>
+                        </svg>
+                        <div class="loopback-label">iterates to foundation</div>
                     </div>
                 </div>
-
-                <div class="arrow"><span class="arrow-icon">↓</span></div>
-
-                <!-- Layer 2: Gold Layer -->
-                <div class="layer layer-2">
-                    <div class="layer-label">Layer 2 — Logic</div>
-                    <div class="layer-title">Gold Layer — Institutionalized Business Logic</div>
-                    <div class="layer-desc">Standardized SQL views, calculated fields, and pre-built datasets representing agreed business definitions.</div>
-                    <div class="layer-tags">
-                        <span class="layer-tag">SQL Views</span>
-                        <span class="layer-tag">Universal Measures</span>
-                        <span class="layer-tag">Pre-built Datasets</span>
-                        <span class="layer-tag">Shared Definitions</span>
-                    </div>
-                </div>
-
-                <div class="arrow"><span class="arrow-icon">↓</span></div>
-
-                <!-- Layer 3: Governance -->
-                <div class="layer layer-3">
-                    <div class="layer-label">Layer 3 — Trust</div>
-                    <div class="layer-title">Governance</div>
-                    <div class="layer-desc">Changes are documented and communicated. Audit automation runs continuously to reconcile between systems and reports. Dataflows are mapped and metrics are defined for both internal and external reference.</div>
-                    <div class="layer-tags">
-                        <span class="layer-tag">Audit Automation</span>
-                        <span class="layer-tag">SOPs</span>
-                        <span class="layer-tag">Dataflow Diagrams</span>
-                        <span class="layer-tag">Stakeholder Sign-off</span>
-                    </div>
-                </div>
-
-                <div class="arrow"><span class="arrow-icon">↓</span></div>
-                
-                <!-- Layer 4: Reporting -->
-                <div class="layer layer-4">
-                    <div class="layer-label">Layer 4 — Output</div>
-                    <div class="layer-title">Reporting & Visualization</div>
-                    <div class="layer-desc">Standardized dashboards and reports with consistent visual language — color coding, layout templates, metric naming, data source and refresh dates on each report.</div>
-                    <div class="layer-tags">
-                        <span class="layer-tag">Institutional Dashboards</span>
-                        <span class="layer-tag">Ad Hoc Reports</span>
-                    </div>
-                </div>
-
-                <div class="arrow"><span class="arrow-icon">↓</span></div>
-
-                <!-- Layer 5: The Feedback Loop -->
-                <div class="layer layer-5" id="layer-5">
-                    <div class="layer-label">Layer 5 — Feedback</div>
-                    <div class="layer-title">Systematically Incorporating Feedback</div>
-                    <div class="layer-desc">Engaging in open dialogue and regular check-ins with stakeholders, enabling the solution to evolve to meet business needs.</div>
-                    <div class="layer-tags">
-                        <span class="layer-tag">Stakeholder Check-ins</span>
-                        <span class="layer-tag">Iterative Refinement</span>
-                    </div>
-                </div>
-
-                <!-- Loopback arrow -->
-                <div class="loopback-arrow">
-                    <div class="loopback-line"></div>
-                    <div class="loopback-label">iterates back to foundation</div>
-                </div>
-
             </div>
         </section>
 
@@ -443,41 +422,63 @@
 
             <p>At a large multifamily real estate operator, I inherited a reporting environment built on manually downloaded and transformed Excel files. My predecessors had defined the metrics and published reports without stakeholder alignment.</p>
 
-            <p>The breaking point came when leadership began to notice small discrepancies, eroding trust in all related reporting.</p>
+            <p>Leadership began to notice small discrepancies, eroding trust in all related reporting.</p>
 
             <p>The rebuild was a year-long initiative under close executive oversight, regular leadership check-ins, and ongoing iteration in response to evolving economic conditions.</p>
 
-            <ul class="space-y-3 ml-2 mt-4 mb-4">
-                <li class="flex gap-3">
-                    <span style="color:var(--google-red); font-weight:700; flex-shrink:0;">◆</span>
-                    <span style="color:#3c4043; line-height:1.7;">Worked with senior leadership in portfolio management, acquisitions, operations, and accounting to identify the business questions that reporting needed to answer, then worked backwards to define data requirements — getting clean, structured data into the warehouse in collaboration with the BI team.</span>
-                </li>
-                <li class="flex gap-3">
-                    <span style="color:#b8860b; font-weight:700; flex-shrink:0;">◆</span>
-                    <span style="color:#3c4043; line-height:1.7;">Restructured the accounting hierarchy to align with how the business actually asked questions, and realigned hundreds of millions of dollars in historical budget and cost data to match this new structure.</span>
-                </li>
-                <li class="flex gap-3">
-                    <span style="color:var(--google-green); font-weight:700; flex-shrink:0;">◆</span>
-                    <span style="color:#3c4043; line-height:1.7;">Implemented audit automation and authored SOPs to enforce data quality at the site-level, and built a Power App to capture operational data that wasn't being recorded in any system but was critical to reporting.</span>
-                </li>
-                <li class="flex gap-3">
-                    <span style="color:var(--google-blue); font-weight:700; flex-shrink:0;">◆</span>
-                    <span style="color:#3c4043; line-height:1.7;">Created all new reporting with a consistent visual language, embedded methodology documentation, and clear sourcing — delivering 10+ automated dashboards with 500+ monthly views across the organization.</span>
-                </li>
-                <li class="flex gap-3">
-                    <span style="color:var(--google-purple); font-weight:700; flex-shrink:0;">◆</span>
-                    <span style="color:#3c4043; line-height:1.7;">Conducted monthly reporting reviews to collect feedback and incorporate changes into the broader analytics solution.</span>
-                </li>
+            <div class="cs-outer" style="margin-top:1.25rem;">
+                <!-- Bullets column -->
+                <div class="cs-bullets" id="cs-bullets-col">
 
-                
-            </ul>
+                    <div class="bullet-item" id="cs-bullet-1">
+                        <span class="bullet-diamond" style="color:#DB4437;">◆</span>
+                        <p class="bullet-text">Worked with senior leadership in portfolio management, acquisitions, operations, and accounting to identify the business questions that reporting needed to answer, then worked backwards to define data requirements — getting clean, structured data into the warehouse in collaboration with the BI team.</p>
+                    </div>
+
+                    <div class="bullet-item">
+                        <span class="bullet-diamond" style="color:#b8860b;">◆</span>
+                        <p class="bullet-text">Restructured the accounting hierarchy to align with how the business actually asked questions, and realigned hundreds of millions of dollars in historical budget and cost data to match this new structure.</p>
+                    </div>
+
+                    <div class="bullet-item">
+                        <span class="bullet-diamond" style="color:#0F9D58;">◆</span>
+                        <p class="bullet-text">Implemented audit automation and authored SOPs to enforce data quality at the site-level, and built a Power App to capture operational data that wasn't being recorded in any system but was critical to reporting.</p>
+                    </div>
+
+                    <div class="bullet-item">
+                        <span class="bullet-diamond" style="color:#4285F4;">◆</span>
+                        <p class="bullet-text">Created all new reporting with a consistent visual language, embedded methodology documentation, and clear sourcing — delivering 10+ automated dashboards with 500+ monthly views across the organization.</p>
+                    </div>
+
+                    <div class="bullet-item" id="cs-bullet-5">
+                        <span class="bullet-diamond" style="color:#7B61FF;">◆</span>
+                        <p class="bullet-text">Conducted monthly reporting reviews to collect feedback and incorporate changes into the broader analytics solution.</p>
+                    </div>
+
+                </div>
+
+                <!-- Case study loopback arrow column -->
+                <div class="cs-loopback-col" id="cs-loopback-col">
+                    <svg id="cs-loopback-svg" viewBox="0 0 44 100" preserveAspectRatio="none">
+                        <defs>
+                            <marker id="cs-arrow-up" viewBox="0 0 10 10" refX="5" refY="8" markerWidth="7" markerHeight="7" orient="auto">
+                                <path d="M2 8L5 2L8 8" fill="none" stroke="#7B61FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </marker>
+                        </defs>
+                        <path id="cs-loopback-path" fill="none" stroke="#7B61FF" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.65" marker-end="url(#cs-arrow-up)"/>
+                    </svg>
+                    <div class="cs-loopback-label">iterates to foundation</div>
+                </div>
+            </div>
         </section>
 
         <!-- Section 5: Why It Matters -->
         <section class="mb-4 fade-in">
             <h2 class="section-title text-2xl font-semibold">Why This Matters Beyond Any One Industry</h2>
 
-            <p>The framework is industry-agnostic. The failure modes are the same and the solution is the same. Start with the business questions. Build a foundation that enforces consistency. Institutionalize the logic so it outlasts individual contributors. And earn trust through repetition and transparency.</p>
+            <p>The framework is industry-agnostic. The failure modes are the same and the solution is the same. Start with the business questions. Build a foundation that enforces consistency. Institutionalize the logic so it outlasts individual contributors. Earn trust through repetition and transparency.</p>
+
+            <p>The principal-agent problem can be countered, but requires close attention, and an organizational acceptance to build slow in order to think fast when it matters.</p>
         </section>
 
         <!-- Back link -->
@@ -488,5 +489,74 @@
         </div>
 
     </div>
+
+    <script>
+        function drawStackLoopback() {
+            const col = document.getElementById('stack-loopback-col');
+            const svg = document.getElementById('stack-loopback-svg');
+            const path = document.getElementById('stack-loopback-path');
+            const layer1 = document.getElementById('stack-layer1');
+            const layer5 = document.getElementById('stack-layer5');
+
+            const colRect = col.getBoundingClientRect();
+            const l1rect = layer1.getBoundingClientRect();
+            const l5rect = layer5.getBoundingClientRect();
+
+            const totalH = colRect.height;
+            const topY = l1rect.top - colRect.top + l1rect.height / 2;
+            const botY = l5rect.top - colRect.top + l5rect.height / 2;
+
+            svg.setAttribute('viewBox', `0 0 44 ${totalH}`);
+
+            // Arc from bottom midpoint to top midpoint, curving rightward
+            const xStart = 12;
+            const xPeak = 36;
+            path.setAttribute('d',
+                `M ${xStart} ${botY} C ${xPeak} ${botY}, ${xPeak} ${topY}, ${xStart} ${topY}`
+            );
+        }
+
+        function drawCsLoopback() {
+            const col = document.getElementById('cs-loopback-col');
+            const svg = document.getElementById('cs-loopback-svg');
+            const path = document.getElementById('cs-loopback-path');
+            const b1 = document.getElementById('cs-bullet-1');
+            const b5 = document.getElementById('cs-bullet-5');
+
+            const colRect = col.getBoundingClientRect();
+            const b1rect = b1.getBoundingClientRect();
+            const b5rect = b5.getBoundingClientRect();
+
+            const totalH = colRect.height;
+            const topY = b1rect.top - colRect.top + b1rect.height / 2;
+            const botY = b5rect.top - colRect.top + b5rect.height / 2;
+
+            svg.setAttribute('viewBox', `0 0 44 ${totalH}`);
+
+            const xStart = 12;
+            const xPeak = 36;
+            path.setAttribute('d',
+                `M ${xStart} ${botY} C ${xPeak} ${botY}, ${xPeak} ${topY}, ${xStart} ${topY}`
+            );
+        }
+
+        function drawAll() {
+            drawStackLoopback();
+            drawCsLoopback();
+        }
+
+        // Draw after fonts/layout settle
+        if (document.readyState === 'complete') {
+            drawAll();
+        } else {
+            window.addEventListener('load', drawAll);
+        }
+
+        window.addEventListener('resize', drawAll);
+
+        // Extra pass after paint to catch any late layout shifts
+        requestAnimationFrame(() => setTimeout(drawAll, 120));
+    </script>
+
 </body>
 </html>
